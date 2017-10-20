@@ -43,16 +43,29 @@ var app = {
     }
 };
 
+function selectSection(section) {
+    section.appendChild(underline);
+    section.style.fontWeight = "bold";
+}
+
 app.initialize();
 
-let sectionList = document.getElementById('section').getElementsByTagName('a'), curSection = sectionList.firstChild;
+let section = document.getElementById('section'), sectionList = section.getElementsByTagName('a'),
+curSection = location.hash ? location.hash.substring(1) : 1, underline = document.createElement('div');
 
-console.log(sectionList[0]);
+underline.className = 'selected';
 
-// innerText = curSection.innerText;
-//
-// innerText = '<b>' + curSection.innerText + '</b><div class="selected"></div>';
+selectSection(sectionList[curSection - 1]);
 
-//curSection.appendChild('<div class="selected"></div>');
-
-//console.log(innerText);
+// console.log("At load, in section " + curSection);
+section.addEventListener('click',function (e) {
+    // console.log("================================");
+    // console.log(sectionList);
+    let newURL = e.target.href;
+    curSection = location.hash ? location.hash.substring(1) : 1;
+    // console.log("Before click, in section " + curSection);
+    sectionList[curSection - 1].style.fontWeight = "";
+    selectSection(e.target);
+    // console.log("Clicked, new section is " + newSection);
+    // console.log("================================");
+});
