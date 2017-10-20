@@ -266,7 +266,6 @@ input {
 
 #resultList {
     background-color: #ffffff;
-    position: relative;
     bottom: 0rem;
     top: 9.375rem;
     position: absolute;
@@ -339,6 +338,7 @@ input {
     border-radius: 0.9375rem;
     overflow: hidden;
     border: 1px solid #e1e1e1;
+    transition: all 5s;
 }
 
 #buttonset i {

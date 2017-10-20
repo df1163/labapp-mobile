@@ -39,7 +39,7 @@
 <body>
 <div id="head">应用商城</div>
 
-<div id="selection" class="">
+<div id="selection">
     <div id="user" class="hide">
         <div id="avatar" class="float-left"></div>
         <div id="role" class="float-left">
@@ -47,14 +47,14 @@
             <div class="roleText">hsjc</div>
         </div>
     </div>
-    <div id="search" class="" style="width: 100%">
-        <i class="iconfont icon-back float-left"></i>
+    <div id="search">
+        <a href="#1"><i class="iconfont icon-back float-left"></i></a>
         <input type="text" value="输入您想搜索的内容">
     </div>
-    <i class="iconfont icon-search float-right"></i>
+    <a id="searchIcon" href="#search"><i class="iconfont icon-search float-right"></i></a>
 </div>
 
-<div id="section" class="">
+<div id="section">
     <a class="subsection" href="#1">云推送应用</a><!--
 　　--><a class="subsection" href="#2">应用商城
     <!--<div class="selected"></div>--></a><!--
@@ -64,7 +64,7 @@
 
 <div id="nullResult" class="hide">暂无搜索结果</div>
 
-<div id="resultList" class="">
+<div id="resultList">
     <div id="buttonset">
         <button id="filter"><i class="iconfont icon-filter"></i>筛选</button><!--
 　　--><button id="sort"><i class="iconfont icon-navlist"></i>排序</button>

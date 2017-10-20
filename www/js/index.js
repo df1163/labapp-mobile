@@ -48,24 +48,52 @@ function selectSection(section) {
     section.style.fontWeight = "bold";
 }
 
+function showElement(elem) {
+    elem.className = elem.className.replace(/[\s]+/g,' ').replace(/^[\s]/, '').replace(/\bhide\b/g, '');
+}
+
+function hideElement(elem) {
+    elem.className += ' hide';
+}
+
 app.initialize();
 
 let section = document.getElementById('section'), sectionList = section.getElementsByTagName('a'),
-curSection = location.hash ? location.hash.substring(1) : 1, underline = document.createElement('div');
+        underline = document.createElement('div'), buttonset = document.getElementById('buttonset'),
+        resultList = document.getElementById('resultList');
 
 underline.className = 'selected';
 
-selectSection(sectionList[curSection - 1]);
+if(location.hash === '#search') {
+    hideElement(section);
+    hideElement(resultList);
+} else {
+    curSection = location.hash ? location.hash.substring(1) : 1;
+    selectSection(sectionList[curSection - 1]);
+}
 
 // console.log("At load, in section " + curSection);
 section.addEventListener('click',function (e) {
     // console.log("================================");
     // console.log(sectionList);
+
     let newURL = e.target.href;
     curSection = location.hash ? location.hash.substring(1) : 1;
+
     // console.log("Before click, in section " + curSection);
     sectionList[curSection - 1].style.fontWeight = "";
     selectSection(e.target);
+
     // console.log("Clicked, new section is " + newSection);
     // console.log("================================");
+});
+
+resultList.addEventListener('touchstart', function (e) {
+    showElement(buttonset);
+});
+
+resultList.addEventListener('touchend', function (e) {
+    setTimeout(function () {
+        hideElement(buttonset);
+    }, 5000);
 });
