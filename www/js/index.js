@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+let app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -43,57 +43,69 @@ var app = {
     }
 };
 
-function selectSection(section) {
+let selectSection = section=> {
     section.appendChild(underline);
     section.style.fontWeight = "bold";
-}
-
-function showElement(elem) {
+}, showElement = elem => {
     elem.className = elem.className.replace(/[\s]+/g,' ').replace(/^[\s]/, '').replace(/\bhide\b/g, '');
-}
-
-function hideElement(elem) {
-    elem.className += ' hide';
-}
+}, hideElement = elem => {
+    elem.className = undefined ? 'hide' : elem.className + ' hide';
+}, getCriteriaEventHandler = criteria => {
+    return function () {
+        backdrop.activeChild = (criteria === filterCriteria ? filterCriteria : sortCriteria);
+        showElement(backdrop);
+        showElement(backdrop.activeChild);
+    }
+}, buttonSetShow = () => {
+    showElement(buttonset);
+    filterButton.addEventListener('touchstart', getCriteriaEventHandler(filterCriteria));
+    sortButton.addEventListener('touchstart', getCriteriaEventHandler(sortCriteria));
+}, buttonSetHide = () => {
+    hideElement(buttonset);
+    filterButton.removeEventListener('touchstart', getCriteriaEventHandler(filterCriteria));
+    sortButton.removeEventListener('touchstart', getCriteriaEventHandler(sortCriteria));
+};
 
 app.initialize();
 
-let section = document.getElementById('section'), sectionList = section.getElementsByTagName('a'),
-        underline = document.createElement('div'), buttonset = document.getElementById('buttonset'),
-        resultList = document.getElementById('resultList');
+let [
+        section, sectionList, underline, buttonset, resultList, filterButton, sortButton,
+        backdrop, filterCriteria, sortCriteria
+    ] = [
+        document.getElementById('section'),
+        document.getElementById('section').getElementsByTagName('a'),
+        document.createElement('div'), document.getElementById('buttonset'),
+        document.getElementById('resultList'), document.getElementById('filter'), document.getElementById('sort'),
+        document.getElementById('backdrop'), document.getElementById('filterCriteria'),
+        document.getElementById('sortCriteria')
+    ];
 
 underline.className = 'selected';
 
-if(location.hash === '#search') {
-    hideElement(section);
-    hideElement(resultList);
-} else {
-    curSection = location.hash ? location.hash.substring(1) : 1;
-    selectSection(sectionList[curSection - 1]);
-}
+curSection = 1;
+selectSection(sectionList[curSection - 1]);
 
-// console.log("At load, in section " + curSection);
 section.addEventListener('click',function (e) {
-    // console.log("================================");
-    // console.log(sectionList);
-
     let newURL = e.target.href;
     curSection = location.hash ? location.hash.substring(1) : 1;
 
-    // console.log("Before click, in section " + curSection);
     sectionList[curSection - 1].style.fontWeight = "";
     selectSection(e.target);
-
-    // console.log("Clicked, new section is " + newSection);
-    // console.log("================================");
 });
 
-resultList.addEventListener('touchstart', function (e) {
-    showElement(buttonset);
-});
-
-resultList.addEventListener('touchend', function (e) {
+resultList.addEventListener('scroll', function (e) {
+    let self = arguments.callee;
+    buttonSetShow();
     setTimeout(function () {
-        hideElement(buttonset);
-    }, 5000);
+        this.removeEventListener('scroll', self);
+        buttonSetHide();
+    }, 3000);
+});
+
+backdrop.addEventListener('click', function (e) {
+    if(e.target.id === 'backdrop'){
+        hideElement(backdrop);
+        hideElement(backdrop.activeChild);
+        buttonSetHide();
+    }
 });

@@ -30,6 +30,6 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <engine name="ios" spec="^4.5.2" />
-    <engine name="browser" spec="^5.0.0" />
+    <engine name="browser" spec="^5.0.1" />
     <engine name="android" spec="^6.3.0" />
 </widget>

@@ -78,6 +78,15 @@
     float: none;
 }
 
+.clear-float {
+    clear: both;
+    margin: 1rem auto;
+}
+
+.text-left, .text-left * {
+    text-align: left;
+}
+
 .hide {
     display: none !important;
 }
@@ -90,11 +99,33 @@ a {
     text-decoration: none;
 }
 
-* {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+button {
+    text-align: center !important;
 }
 
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    text-align: center;
+}
+
+h1, h3 {
+    font-weight:normal;
+    margin: 0rem;
+    overflow:visible;
+    padding: 0rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size:1.125rem;
+}
+
+
 body {
+    z-index: 1;
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
@@ -122,7 +153,6 @@ body > div {
     top:50%;
     height: 3.125rem;                   /* text area height */
     width: 14.0625rem;                   /* text area width */
-    text-align:center;
     padding: 11.25rem 0rem 0rem 0rem;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:-7.1875rem 0rem 0rem -7rem;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
@@ -138,22 +168,15 @@ body > div {
     }
 }
 
-h1 {
-    font-size:1.5rem;
-    font-weight:normal;
-    margin: 0rem;
-    overflow:visible;
-    padding: 0rem;
-    text-align:center;
+@media screen and (max-width: 359px) and  (min-width: 300px) {
+    input {
+        width: 13.75rem !important;
+    }
 }
-
-h3 {
-    font-size:1.125rem;
-    font-weight:normal;
-    margin: 0rem;
-    overflow:visible;
-    padding: 0rem;
-    text-align:center;
+@media screen and (max-width: 399px) and  (min-width: 360px) {
+    input {
+        width: 15.75rem !important;
+    }
 }
 
 .event {
@@ -195,7 +218,6 @@ h3 {
 #head {
     background-color: #1B1B20;
     height: 2.5rem;
-    text-align: center;
     color: #ffffff;
     font-size: 1.25rem;
     line-height: 2.5rem;
@@ -211,6 +233,10 @@ h3 {
     background-image:-webkit-gradient(left, #508DFF 0%, #3BB8FE 100%);
 }
 
+#selection:after {
+    clear: both;
+}
+
 #avatar {
     height: 2.9375rem;
     width: 2.9375rem;
@@ -219,16 +245,15 @@ h3 {
     position: relative;
 }
 
-/*#user, #search {*/
-    /*display: inline-block;*/
-    /*position: relative;*/
-    /*width: 80%;*/
-/*}*/
-
 input {
     height: 2.5rem;
     float: left;
-    border-radius: 1.25rem;
+    border: 0;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    margin-top: 0.125rem;
+    width: 18.75rem;
 }
 
 #role {
@@ -270,6 +295,7 @@ input {
     top: 9.375rem;
     position: absolute;
     overflow: scroll;
+    z-index: 0;
 }
 
 .cell {
@@ -309,8 +335,10 @@ input {
     color: rgba(51,51,51,1);
     font-size: 1rem;
     font-weight: bold;
-    margin-top: 0px !important;
-    margin-bottom: 0.6875rem;
+}
+
+.cell-title:after {
+    clear: both;
 }
 
 .cell-button {
@@ -327,14 +355,13 @@ input {
 }
 
 #buttonset {
-    z-index: 999;
+    z-index: 500;
     width: 12.5rem;
     position: fixed;
     left: 50%;
     margin-left: -6.25rem;
     bottom: 1.25rem;
     height: 2.1875rem;
-    /*background-color: #333333;*/
     border-radius: 0.9375rem;
     overflow: hidden;
     border: 1px solid #e1e1e1;
@@ -366,7 +393,6 @@ input {
     font-size: 0.875rem;
     color: rgba(102, 102, 102, 1);
     line-height: 2.5rem;
-    text-align: center;
     width: 25%;
     height: 100%;
     display: inline-block;
@@ -390,7 +416,6 @@ input {
     position: absolute;
     top: 0;
     line-height: 100vh;
-    text-align: center;
     font-size: 1.125rem;
     font-weight: bold;
     color: #666666;
@@ -400,8 +425,12 @@ input {
     overflow: scroll;
 }
 
+#resultList .cell-title {
+    margin-top: 0;
+}
+
 #appDetail .cell-title {
-    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 #appOverview, #appDescription, #appRecommend {
@@ -450,15 +479,12 @@ button.green {
 #appInfo {
     position: static;
     margin: 1.25rem auto 1.875rem;
-    text-align: center;
 }
 
 #returnIcon {
-    float: left;
     margin-left: -0.3125rem;
     margin-top: -0.3125rem;
     height: 1.25rem;
-    text-align: center;
     line-height: 1.25rem;
     font-size: 1rem;
     width: 1.25rem;
@@ -466,4 +492,76 @@ button.green {
     background-color: #0B99F4;
     color: white;
     font-weight: bold;
+}
+
+#filterCriteria, #sortCriteria {
+    z-index: 999;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    opacity: 1;
+    position: fixed;
+    bottom: 0;
+    font-size: 1rem;
+}
+
+#filterCriteria > div, #sortCriteria > div{
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid rgb(234,235,237);
+    position: relative;
+}
+
+#filterCriteria > div:last-child, #sortCriteria > div:last-child {
+    border: none;
+}
+
+#backdrop i {
+    font-size: 1.25rem;
+    position: absolute;
+    right: 0.875rem;"
+}
+
+#backdrop {
+    z-index: 700;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    font-weight: normal;
+}
+
+#backdrop .cell-title {
+    font-size: 1.25rem;
+    color: #1B1B20;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+#backdrop button{
+    width: 10.5rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d6d7dc;
+    background-color: #FFFFFF;
+    font-size: 1rem;
+}
+
+#backdrop button.selectedButton {
+    background-color: #0B99F4;
+    color: #FFFFFF;
+}
+
+#backdrop .option {
+    color: #088de8;
+}
+
+.button-container {
+    overflow: auto;
+    margin-bottom: 1rem;
+}
+
+.button-container:after {
+    clear: both;
 }
