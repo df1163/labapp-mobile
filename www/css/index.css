@@ -123,7 +123,6 @@ h3 {
     font-size:1.125rem;
 }
 
-
 body {
     z-index: 1;
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -138,7 +137,8 @@ body {
     padding: 0rem;
     text-transform:uppercase;
     width:100%;
-    position: relative;
+    overflow: scroll;
+    height: 100vh;
 }
 
 body > div {
@@ -223,7 +223,7 @@ body > div {
     line-height: 2.5rem;
 }
 
-#selection {
+#panel {
     padding: 0.4375rem 0.9375rem;
     height: 3.75rem;
     box-sizing: border-box;
@@ -242,7 +242,6 @@ body > div {
     width: 2.9375rem;
     background-color: red;
     border-radius: 100%;
-    position: relative;
 }
 
 input {
@@ -272,9 +271,10 @@ input {
 #role .roleText {
     font-size: 0.75rem;
     margin-left: 0.1875rem;
+    text-align: left;
 }
 
-#selection i {
+#panel i {
     font-size: 1.875rem;
     color: white;
     font-weight: bold;
@@ -305,11 +305,17 @@ input {
     position: relative;
 }
 
+.cell .cell-button {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+}
+
 .cell-icon {
     height: 3.75rem;
     width: 3.75rem;
     background-color: red;
-    border-radius: 90.5626rem;
+    border-radius: 0.625rem;
 }
 
 .cell-body {
@@ -345,13 +351,10 @@ input {
     background-color: rgb(63,152,237);
     border: 0px;
     border-radius: 0.3125rem;
-    position: absolute;
     font-size: 0.875rem;
     color: #ffffff;
     height: 1.875rem;
     width: 3.75rem;
-    bottom: 0rem;
-    right: 0rem;
 }
 
 #buttonset {
@@ -444,7 +447,31 @@ input {
     margin-top: 1.25rem;
     z-index: 999;
     height: 8.75rem;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    min-width: 100%;
+    white-space: nowrap;
+}
+
+.tile:first-child {
+    margin: 0;
+}
+
+.tile {
+    display: inline-block;
+    width: 3.75rem;
+    margin: 0 0 0 1.5rem;
+}
+
+.tile .cell-title {
+    font-size: 0.75rem;
+    font-weight: normal;
+    width: 100%;
+    margin: 0.4rem 0 0.7rem !important;
+    height: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
 }
 
 #appOverview button {
@@ -548,12 +575,12 @@ button.green {
     font-size: 1rem;
 }
 
-#backdrop button.selectedButton {
+#backdrop button.selected-button {
     background-color: #0B99F4;
     color: #FFFFFF;
 }
 
-#backdrop .option {
+#backdrop .cancel, #backdrop .submit {
     color: #088de8;
 }
 
