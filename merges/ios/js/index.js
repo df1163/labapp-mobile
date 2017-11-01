@@ -19,9 +19,13 @@
 let app = {
     // Application Constructor
     initialize: function() {
-        document.addEventListener('DOMContentLoaded', this.onDeviceReady.bind(this), false);
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
     onDeviceReady: () => {
 
         // let xhr = new XMLHttpRequest();
@@ -70,7 +74,7 @@ let app = {
             document.createElement('i')
         ];
 
-        let [filterClass, filterPlatform, sort, pageURL] = ['all', 'all', 'default',['Recommend', 'Index', 'DownHistory']];
+        let [filterClass, filterPlatform, sort] = ['all', 'all', 'default'];
 
         let selectSection = section => {
 
@@ -114,13 +118,13 @@ let app = {
             sortButton.removeEventListener('click', getCriteriaEventHandler(sortCriteria));
 
         };
-        // let curSection = (location.hash === '#search' || location.hash === "") ? 1 : location.hash.substring(1);
+        let curSection = (location.hash === '#search' || location.hash === "") ? 1 : location.hash.substring(1);
 
         underline.className = 'selected';
         checked.className = 'float-right iconfont icon-selected';
         sortCriteria.children[1].appendChild(checked);
 
-        selectSection(sectionList[pageURL.indexOf(location.pathname.split('/')[location.pathname.split('/').length - 1])]);
+        selectSection(sectionList[curSection - 1]);
 
         searchIcon.addEventListener('click', e => {
             console.log('Clicked! now url is: ' + location.hash);
@@ -148,13 +152,13 @@ let app = {
             });
         });
 
-        // section.addEventListener('click', e => {
-        //     if (location.hash !== '#search') {
-        //         curSection = location.hash ? location.hash.substring(1) : 1;
-        //         sectionList[curSection - 1].style.fontWeight = "";
-        //     }
-        //     selectSection(e.target);
-        // });
+        section.addEventListener('click', e => {
+            if (location.hash !== '#search') {
+                curSection = location.hash ? location.hash.substring(1) : 1;
+                sectionList[curSection - 1].style.fontWeight = "";
+            }
+            selectSection(e.target);
+        });
 
         resultList.addEventListener('scroll', function (e) {
             let self = arguments.callee;
