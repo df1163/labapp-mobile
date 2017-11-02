@@ -22,7 +22,8 @@
 let app = {
     // Application Constructor
     initialize: function() {
-        document.addEventListener('DOMContentLoaded', this.onDeviceReady.bind(this), false);
+        alert('This is Browser!');
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
     // deviceready Event Handler
@@ -226,17 +227,31 @@ let app = {
             options = {quality: "200"};
             cordova.exec(
                 function (result) {
-                    // alert("Success!");
-                    // alert(result);
+                    alert("Success!");
+                    alert(result);
                 },
                 function (error) {
-                    // alert("error");
-                    // alert(error);
+                    alert("error");
+                    alert(error);
                 },
                 'HelloWorld', 'sayHello', [options]);
         };
 
         test();
+
+
+        // function verify() {
+        //     var password = 'hangge';
+        //
+        //     cordova.exec(function successFunction(){
+        //             alert("口令验证成功！");
+        //         }, function failFunction(message){
+        //             alert("验证失败："+message);
+        //         }, "HanggeSwiftPlugin",
+        //         "verifyPassword", [password]);
+        // };
+        //
+        // verify();
     }
 };
 

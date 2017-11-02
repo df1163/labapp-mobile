@@ -27,8 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'www')));
 
 app.use('/', index);
-app.use('/AppHome', appHome);
 app.use('/users', users);
+app.use('/Appshop/AppHome', appHome);
 
 console.log(__dirname);
 

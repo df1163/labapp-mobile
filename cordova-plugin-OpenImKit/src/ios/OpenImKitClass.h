@@ -1,0 +1,2 @@
+#import <Cordova/CDPlugin.h>
+

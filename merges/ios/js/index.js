@@ -19,6 +19,7 @@
 let app = {
     // Application Constructor
     initialize: function() {
+        alert('This is IOS!');
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -27,6 +28,30 @@ let app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: () => {
+        var getDeviceBtn = document.getElementById("getDeviceMore");
+
+        getDeviceBtn.addEventListener('click', getDeviceMore);
+
+        function getDeviceMore() {
+            try {
+
+                var center = cordova.require('com.liki.plugins.testMyPlugin.TestPlugin');
+
+                center.getDeviceMore(onSucceed, onFailed);
+            } catch (e) {
+                alert('Cordova Error!');
+            }
+
+        }
+
+        function onSucceed(deviceAbout) {
+            var deviceStr = JSON.stringify(deviceAbout);
+            alert(deviceStr);
+        }
+
+        function onFailed() {
+            alert("获取失败");
+        }
 
         // let xhr = new XMLHttpRequest();
         //
@@ -220,17 +245,19 @@ let app = {
         });
 
         function test() {
-            options = {quality: "200"};
+            alert('Function run!');
+            var options = {quality: "200"};
             cordova.exec(
                 function (result) {
-                    // alert("Success!");
-                    // alert(result);
+                    alert("Success!");
+                    alert(result);
                 },
                 function (error) {
-                    // alert("error");
-                    // alert(error);
+                    alert("error");
+                    alert(error);
                 },
                 'HelloWorld', 'sayHello', [options]);
+            alert('Done!');
         };
 
         test();

@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "supervisor ./bin/www",
+    "prestart": "echo \" this is pre start \"",
+    "poststart": "echo \" this is post start \""
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -11,6 +13,8 @@
     "cordova-android": "^6.3.0",
     "cordova-browser": "^5.0.1",
     "cordova-ios": "^4.5.3",
+    "cordova-plugin-add-swift-support": "^1.7.0",
+    "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-statusbar": "^2.2.3",
     "cordova-plugin-whitelist": "^1.3.2",
     "debug": "~2.6.3",
@@ -27,7 +31,9 @@
     ],
     "plugins": {
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-add-swift-support": {}
     }
   }
 }
