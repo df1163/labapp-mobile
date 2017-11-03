@@ -168,14 +168,36 @@ body > div {
     }
 }
 
+@media screen and (min-width: 400px) {
+    #backdrop button{
+        width: 10.5rem;
+        height: 2.25rem;
+    }
+}
+@media screen and (max-width: 300px)  {
+
+    #backdrop button{
+        width: 7.9rem;
+        height: 2.2rem;
+    }
+}
+
 @media screen and (max-width: 359px) and  (min-width: 300px) {
     input {
         width: 13.75rem !important;
+    }
+    #backdrop button{
+        width: 8.5rem;
+        height: 2.2rem;
     }
 }
 @media screen and (max-width: 399px) and  (min-width: 360px) {
     input {
         width: 15.75rem !important;
+    }
+    #backdrop button{
+        width: 9.5rem;
+        height: 2.25rem;
     }
 }
 
@@ -240,7 +262,8 @@ body > div {
 #avatar {
     height: 2.9375rem;
     width: 2.9375rem;
-    background-color: red;
+    background: url("../img/personal-head-visitor.png");
+    background-size: cover;
     border-radius: 100%;
 }
 
@@ -422,6 +445,7 @@ input {
     font-size: 1.125rem;
     font-weight: bold;
     color: #666666;
+    z-index: -1;
 }
 
 #appDetail {
@@ -430,6 +454,10 @@ input {
 
 #resultList .cell-title {
     margin-top: 0;
+    white-space: nowrap;
+    max-width: 12.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #appDetail .cell-title {
@@ -567,8 +595,6 @@ button.green {
 }
 
 #backdrop button{
-    width: 10.5rem;
-    height: 2.25rem;
     border-radius: 0.5rem;
     border: 1px solid #d6d7dc;
     background-color: #FFFFFF;

@@ -1,9 +1,3 @@
-/**
- * Created by alex on 01/11/2017.
- */
-/**
- * Created by alex on 01/11/2017.
- */
 var appsData = [
     {
         "data": [{
@@ -3235,7 +3229,7 @@ var appsData = [
             "Attachment": ""
         }], "total": 284, "course": "", "grade": "", "role": "教育局管理员"
     },
-    , {
+    {
         "data": [{
             "Id": "9688d2de-28ef-4047-90ac-f76c3914c48f",
             "AppName": "上海外教版新世纪小学英语二年级第一学期(试验本)-学课文",
@@ -3557,8 +3551,8 @@ var appsData = [
             "PlatForm": "7d3585b7-7b66-43ee-adff-eb68d684c67f",
             "Attachment": ""
         }], "total": 284, "course": "", "grade": "", "role": "教育局管理员"
-    }
-    , {
+    },
+    {
         "data": [{
             "Id": "5a58b2d1-eb5c-44a7-9f87-3e37e899ac29",
             "AppName": "牛津上海版八年级英语第二学期8B(09深圳版)-学课文",
@@ -4273,4 +4267,10 @@ var appsData = [
     }
 ];
 
-module.exports = appsData;
+var apps = [];
+
+for(var i = 0; i < appsData.length; i++){
+    apps = apps.concat(appsData[i].data);
+}
+
+module.exports = apps;

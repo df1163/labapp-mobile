@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var apps = require('./appData.js');
 
-console.log(apps.length);
+console.log("App lenght is: " + apps.length);
 
 
 router.get('/', function (req, res, next) {
@@ -16,16 +16,25 @@ router.get('/SearchApp', function (req, res, next) {
     res.send('Done');
 });
 
+router.post('/SearchApp', function (req, res, next) {
+    res.send('Done');
+});
+
 router.get('/Recommend', function (req, res, next) {
-    res.render('index-node-server.html', {relativePath: ''});
+    res.render('index-node-server.html', {relativePath: 'Recom', test: 'abcd'});
 });
 
 router.get('/Index', function (req, res, next) {
-    res.render('index-node-server.html', {relativePath: ''});
+    res.render('index-node-server.html', {relativePath: 'Index', test: 'abcd'});
 });
 
 router.get('/DownHistory', function (req, res, next) {
-    res.render('index-node-server.html', {relativePath: ''});
+    res.render('index-node-server.html', {relativePath: 'Down', test: 'abcd'});
+});
+
+router.get('/AppDetail', function (req, res, next) {
+    console.log(req.path);
+    res.render('index-node-server.html', {relativePath: 'Detail'});
 });
 
 module.exports = router;
