@@ -1,0 +1,34 @@
+<ion-content>
+    <!--<ion-item>-->
+    <!--<ion-card>-->
+    <!--<ion-card-header>-->
+    <!--Card Header-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content>-->
+    <!--&lt;!&ndash; Add card content here! &ndash;&gt;-->
+    <!--asdfsadsfa-->
+    <!--</ion-card-content>-->
+    <!--</ion-card>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+    <!--<ion-label>Pepperoni</ion-label>-->
+    <!--<ion-toggle [(ngModel)]="pepperoni" (ionChange)="output(pepperoni)"></ion-toggle>-->
+    <!--</ion-item>-->
+
+    <!--<ion-item>-->
+    <!--<ion-label>Sausage</ion-label>-->
+    <!--<ion-toggle [(ngModel)]="sausage" disabled="true"></ion-toggle>-->
+    <!--</ion-item>-->
+
+    <!--<ion-item>-->
+    <!--<ion-label>Mushrooms</ion-label>-->
+    <!--<ion-toggle [(ngModel)]="mushrooms" (ionChange)="output(mushrooms)"></ion-toggle>-->
+    <!--</ion-item>-->
+    <ion-list>
+        <ion-item *ngFor="let hero of heroes">
+            <ion-label>{{hero.id}}</ion-label>
+            <ion-label>{{hero.name}}</ion-label>
+        </ion-item>
+    </ion-list>
+    <div style="height: 4px;width: 20px;background-color: black;position: relative;left: 50%;margin-left: -10px;"></div>
+</ion-content>

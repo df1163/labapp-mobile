@@ -25678,3 +25678,148 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+page-tabs {
+  text-align: center;
+}
+
+page-tabs .toolbar-title {
+  color: #ffffff !important;
+}
+
+page-tabs ion-header .item-ios, page-tabs ion-header .item-md, page-tabs ion-header .item-wp {
+  background-color: transparent !important;
+}
+
+page-tabs ion-header .item-ios *, page-tabs ion-header .item-md *, page-tabs ion-header .item-wp {
+  color: #ffffff !important;
+  line-height: 1.5;
+}
+
+page-tabs ion-header h2 {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+page-tabs ion-header p {
+  line-height: 1 !important;
+  font-size: 12px !important;
+  font-weight: lighten;
+  text-indent: 2px;
+}
+
+page-tabs ion-header .searchbar-ios .searchbar-input {
+  padding-left: calc(25% - 45px) !important;
+  position: relative;
+  top: 3px;
+  background-color: white !important;
+  height: auto;
+  line-height: 3rem;
+}
+
+page-tabs ion-header ion-title {
+  background-color: #1B1B20;
+  height: 40px;
+  font-size: 20px;
+  line-height: 2;
+}
+
+page-tabs ion-header ion-navbar, page-tabs ion-header .col {
+  height: 60px;
+}
+
+page-tabs ion-header a.tab-button {
+  font-size: 14px;
+}
+
+page-tabs ion-header ion-icon {
+  font-size: 2em;
+  line-height: 50px;
+  color: #ffffff !important;
+}
+
+page-tabs ion-header ion-item {
+  height: 100%;
+  padding-left: 0 !important;
+}
+
+page-tabs ion-header div.item-inner {
+  border: 0 !important;
+}
+
+page-tabs .toolbar-background {
+  background-image: -webkit-gradient(linear, left top, right top, from(#508DFF), to(#3BB8FE)) !important;
+  background-image: linear-gradient(to right, #508DFF 0%, #3BB8FE 100%) !important;
+}
+
+page-tabs div.tabbar {
+  top: 100px !important;
+  height: 40px;
+}
+
+page-tabs div.searchbar-search-icon {
+  display: none;
+}
+
+page-tabs div.tab-highlight {
+  height: 4px !important;
+  background: black !important;
+}
+
+page-tabs button.searchbar-clear-icon {
+  right: 25px !important;
+}
+
+page-tabs #search .searchbar-input {
+  border-radius: 21px;
+  padding: 6px 25px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+page-tabs ion-tab {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+page-tabs .list-ios, page-tabs .list-md, page-tabs .list-wp {
+  margin: 110px 0 0;
+}
+
+page-tabs ion-content {
+  background-color: #F0F0F2 !important;
+}
+
+page-tabs #appList h2 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 2;
+}
+
+page-tabs #appList p {
+  font-size: 10px;
+  line-height: 2;
+}
+
+page-tabs #appList .item-inner {
+  border-bottom: 0;
+}
+
+page-tabs #appList ion-item {
+  border-bottom: 1px solid #dedede;
+  height: 100px;
+}
+
+page-tabs #appList button[item-right] {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #3f98ed;
+  border: 0px;
+  border-radius: 0.3125rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+  height: 30px;
+  width: 60px;
+  font-size: 14px;
+}

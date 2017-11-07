@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:; ">-->
+    <meta http-equiv="Content-Security-Policy"
+          content="script-src * 'unsafe-eval'; connect-src * 'unsafe-eval';object-src 'self'; style-src * 'unsafe-inline'; img-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <title>Hello World</title>
+</head>
+<body>
+<div id="head">应用商城
+    <button id="getDeviceMore">获取设备信息</button>
+</div>
+
+<div id="panel" class="">
+    <div id="user" class="">
+        <div id="avatar" class="float-left"></div>
+        <div id="role" class="float-left">
+            <div class="roleHead">普陀区教育局</div>
+            <div class="roleText">hsjc</div>
+        </div>
+    </div>
+    <div id="search" class="hide">
+        <a href="#1"><i class="iconfont icon-back float-left"></i></a>
+        <input type="text" placeholder="输入您想搜索的内容">
+    </div>
+    <a id="searchIcon" href="#search"><i class="iconfont icon-search float-right"></i></a>
+</div>
+
+<div id="section" class="">
+    <a class="subsection" href="#1">云推送应用</a><!--
+    　　--><a class="subsection" href="#2">应用商城</a><!--
+    　　--><a class="subsection" href="#3">我的应用</a><!--
+    　　--><a class="subsection" href="#4">返回中心</a>
+    <!--<a class="subsection" href="/AppHome/Recommend">云推送应用</a>&lt;!&ndash;-->
+    <!--　　&ndash;&gt;<a class="subsection" href="/AppHome/Index">应用商城</a>&lt;!&ndash;-->
+    <!--　　&ndash;&gt;<a class="subsection" href="/AppHome/DownHistory">我的应用</a>&lt;!&ndash;-->
+    <!--　　&ndash;&gt;<a class="subsection" href="/PutuoEdu">返回中心</a>-->
+</div>
+
+<!--<div id="nullResult" class="hide">暂无搜索结果</div>-->
+
+<div id="resultList" class="">
+    <div id="buttonset" class="hide">
+        <button id="filter"><i class="iconfont icon-filter"></i>筛选</button><!--
+　　--><button id="sort"><i class="iconfont icon-navlist"></i>排序</button>
+    </div>
+    <div id="backdrop" class="hide">
+        <div id='filterCriteria' class="hide">
+            <div><span class="float-left cancel">取消</span><span class="cell-title">筛选</span><span id="filterSubmit" class="float-right submit">完成</span>
+            </div>
+            <div>
+                <div class="cell-title text-left">学科</div>
+                <div id='class-criteria' class="button-container">
+                    <button class="float-left" data-class="kindergarden">幼儿</button>
+                    <button class="float-right" data-class="elementary">小学</button>
+                    <div class="clear-float"></div>
+                    <button class="float-left" data-class="junior">初中</button>
+                    <button class="float-right" data-class="senior">高中</button>
+                    <div class="clear-float"></div>
+                    <button class="float-left" data-class="middle">初/高中</button>
+                    <button class="float-right" data-class="k12">小学/初中/高中</button>
+                </div>
+                <div class="cell-title text-left">平台</div>
+                <div id='platform-criteria' class="button-container">
+                    <button class="float-left" data-platform="linux">Linux</button>
+                    <button class="float-right" data-platform="ios">iOS</button>
+                    <div class="clear-float"></div>
+                    <button class="float-left" data-platform="android">Android</button>
+                    <button class="float-right" data-platform="win">WinXP/Win7</button>
+                </div>
+            </div>
+        </div>
+        <div id='sortCriteria' class="hide">
+            <div><span class="float-left cancel">取消</span><span class="cell-title">排序</span><span id="sortSubmit"
+                                                                                                  class="float-right submit">完成</span>
+            </div>
+            <div class="sort-option" data-sort="default"><span>默认</span></div>
+            <div class="sort-option" data-sort="latest"><span>最新</span></div>
+            <div class="sort-option" data-sort="popular"><span>最热</span></div>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-icon float-left"></div>
+        <div class="cell-body text-left">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+            <button class="cell-button">下载</button>
+        </div>
+    </div>
+</div>
+
+<div id="appDetail" class="hide">
+    <div id="appOverview">
+        <div id="returnIcon" class="float-left"><i class="iconfont icon-back" data-anchor="appDetail"></i></div>
+        <div id="appImage"></div>
+        <div id="appInfo" class="cell-body">
+            <div class="cell-title">高中光学-仿真物理实验室</div>
+            <div>高中<span>|</span>3次下载</div>
+            <div>2017-07-26</div>
+        </div>
+        <button class="blue">点击下载</button>
+        <button class="green">手册下载</button>
+    </div>
+
+    <div id="appDescription">
+        <div class="cell-title">软件介绍</div>
+        <div class="text-left">适用平台：WinXP/Win7
+            “仿真物理实验室——光学”模块提供了一个实验器具完备的光学实验环境。一方面，教师可以利用它强大的功能和方便的操作把你丰富的光学知识轻松的转变为形象生动的物理课件，方便学生对于知识的掌握；另一方面，学生可以充分利用它的研究探讨性，来验证你所了解的光学知识，探讨研究你所感兴趣的一切光学现象，形成正确的研究科学知识的方法，在物理知识的世界里探索。它科学严谨的内部算法保证了这一探索的可行性和正确性。
+            “仿真物理实验室——光学”模块是学生学习与探究奇妙光学世界的优秀工具，也是教师进行光学课程教学的优秀工具。
+        </div>
+    </div>
+
+    <div id="appRecommend">
+        <div class="cell-title">热门应用推荐</div>
+        <div id="recommendBox">
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+            <div class="tile">
+                <div class="cell-icon"></div>
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <button class="cell-button">下载</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/cordova.js"></script>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

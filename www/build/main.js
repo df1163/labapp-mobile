@@ -40,9 +40,10 @@ webpackEmptyAsyncContext.id = 148;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__geo_geo__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shop_shop__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history_history__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__recommend_recommend__ = __webpack_require__(197);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,16 +57,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var TabsPage = (function () {
     function TabsPage() {
-        this.tab1Root = __WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */];
-        this.tab2Root = __WEBPACK_IMPORTED_MODULE_1__about_about__["a" /* AboutPage */];
-        this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__contact_contact__["a" /* ContactPage */];
+        this.myInput = "";
+        this.tab1Root = __WEBPACK_IMPORTED_MODULE_4__recommend_recommend__["a" /* RecommendPage */];
+        this.tab2Root = __WEBPACK_IMPORTED_MODULE_2__shop_shop__["a" /* ShopPage */];
+        this.tab3Root = __WEBPACK_IMPORTED_MODULE_3__history_history__["a" /* HistoryPage */];
+        this.tab4Root = __WEBPACK_IMPORTED_MODULE_1__geo_geo__["a" /* GeoPage */];
+        this.searchPanel = false;
     }
+    TabsPage.prototype.returnBack = function () {
+        this.searchPanel = !this.searchPanel;
+        this.myInput = '';
+    };
+    TabsPage.prototype.onInput = function (ev) {
+        alert("Inputted: " + ev.target.value + ', Model value is: ' + this.myInput);
+    };
+    TabsPage.prototype.onCancel = function (ev) {
+        alert('Removed ' + this.myInput + ' from search box');
+    };
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-tabs',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/tabs/tabs.html"*/'<!--<ion-navbar>-->\n<!--<ion-buttons left>-->\n<!--<button ion-button icon-only>-->\n<!--<ion-icon name="menu"></ion-icon>-->\n<!--</button>-->\n<!--</ion-buttons>-->\n\n<!--<ion-title>-->\n<!--Page Title-->\n<!--</ion-title>-->\n\n<!--<ion-buttons end>-->\n<!--<button ion-button icon-only (click)="openModal()">-->\n<!--<ion-icon name="options"></ion-icon>-->\n<!--</button>-->\n<!--</ion-buttons>-->\n<!--</ion-navbar>-->\n<ion-header>\n    <ion-title>\n        应用商城\n    </ion-title>\n    <ion-navbar>\n        <ion-grid>\n            <ion-row>\n                <ion-col col-11 *ngIf="!searchPanel">\n                    <ion-item>\n                        <ion-avatar item-start>\n                            <img src="/img/personal-head-visitor.png" width="50px" height="50px">\n                        </ion-avatar>\n                        <h2>普陀区教育局</h2>\n                        <p>HSJC</p>\n                    </ion-item>\n                </ion-col>\n                <ion-col col-1 *ngIf="searchPanel">\n                    <ion-icon name="arrow-back" (click)="returnBack()"></ion-icon>\n                </ion-col>\n                <ion-col col-10 *ngIf="searchPanel">\n                    <ion-searchbar id=\'search\' animated="true" placeholder="输入您想搜索的内容"\n                                   (ionInput)="onInput($event)"\n                            [(ngModel)]="myInput"\n                            [showCancelButton]="false"\n                            (ionCancel)="onCancel($event)">\n                    </ion-searchbar>\n                </ion-col>\n                <ion-col col-1>\n                    <ion-icon name="search" left ios="ios-search" md="md-search" (click)="returnBack()"></ion-icon>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n\n        <!-- Advanced: explicity set the icon for each platform -->\n        <!--<ion-col col-12>This column will take 12 columns</ion-col>-->\n    </ion-navbar>\n</ion-header>\n\n<ion-tabs selectedIndex="3" tabbarLayout="icon-left" tabsHighlight="true" tabsPlacement="top">\n    <!--<ion-tabs selectedIndex="0" tabbarLayout="icon-left" tabsPlacement="top">-->\n    <ion-tab [root]="tab1Root" tabTitle="云推送应用"></ion-tab>\n    <ion-tab [root]="tab2Root" [rootParams]="chatParams" tabTitle="应用商城"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="我的应用"></ion-tab>\n    <ion-tab [root]="tab4Root" tabTitle="地理位置"></ion-tab>\n</ion-tabs>\n\n<!--<ion-footer no-border>-->\n\n<!--<ion-toolbar>-->\n<!--<ion-title>I\'m a footer</ion-title>-->\n<!--</ion-toolbar>-->\n\n<!--</ion-footer>-->\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -78,9 +94,10 @@ TabsPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_hero_service__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -92,20 +109,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AboutPage = (function () {
-    function AboutPage(navCtrl) {
-        this.navCtrl = navCtrl;
-    }
-    return AboutPage;
-}());
-AboutPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/about/about.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
-], AboutPage);
 
-//# sourceMappingURL=about.js.map
+var GeoPage = (function () {
+    function GeoPage(navCtrl, heroService) {
+        this.navCtrl = navCtrl;
+        this.heroService = heroService;
+        var self = this;
+        this.heroService.getHeros().then(function (data) {
+            self.heroes = data;
+            console.log(self.heroes);
+        });
+    }
+    GeoPage.prototype.openModal = function () {
+        alert('Opened!!');
+    };
+    GeoPage.prototype.output = function (event) {
+        alert('toggle ' + event);
+    };
+    return GeoPage;
+}());
+GeoPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-geo',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/geo/geo.html"*/'<ion-content>\n    <!--<ion-item>-->\n    <!--<ion-card>-->\n    <!--<ion-card-header>-->\n    <!--Card Header-->\n    <!--</ion-card-header>-->\n    <!--<ion-card-content>-->\n    <!--&lt;!&ndash; Add card content here! &ndash;&gt;-->\n    <!--asdfsadsfa-->\n    <!--</ion-card-content>-->\n    <!--</ion-card>-->\n    <!--</ion-item>-->\n    <!--<ion-item>-->\n    <!--<ion-label>Pepperoni</ion-label>-->\n    <!--<ion-toggle [(ngModel)]="pepperoni" (ionChange)="output(pepperoni)"></ion-toggle>-->\n    <!--</ion-item>-->\n\n    <!--<ion-item>-->\n    <!--<ion-label>Sausage</ion-label>-->\n    <!--<ion-toggle [(ngModel)]="sausage" disabled="true"></ion-toggle>-->\n    <!--</ion-item>-->\n\n    <!--<ion-item>-->\n    <!--<ion-label>Mushrooms</ion-label>-->\n    <!--<ion-toggle [(ngModel)]="mushrooms" (ionChange)="output(mushrooms)"></ion-toggle>-->\n    <!--</ion-item>-->\n    <ion-list>\n        <ion-item *ngFor="let hero of heroes">\n            <ion-label>{{hero.id}}</ion-label>\n            <ion-label>{{hero.name}}</ion-label>\n        </ion-item>\n    </ion-list>\n    <div style="height: 4px;width: 20px;background-color: black;position: relative;left: 50%;margin-left: -10px;"></div>\n</ion-content>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/geo/geo.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_hero_service__["a" /* HeroService */]])
+], GeoPage);
+
+//# sourceMappingURL=geo.js.map
 
 /***/ }),
 
@@ -113,34 +143,30 @@ AboutPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeroService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_heroes__ = __webpack_require__(267);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
-var ContactPage = (function () {
-    function ContactPage(navCtrl) {
-        this.navCtrl = navCtrl;
+var HeroService = (function () {
+    function HeroService() {
     }
-    return ContactPage;
+    HeroService.prototype.getHeros = function () {
+        return Promise.resolve(__WEBPACK_IMPORTED_MODULE_1__mock_heroes__["a" /* HEROS */]);
+    };
+    return HeroService;
 }());
-ContactPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/contact/contact.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
-], ContactPage);
+HeroService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
+], HeroService);
 
-//# sourceMappingURL=contact.js.map
+//# sourceMappingURL=hero.service.js.map
 
 /***/ }),
 
@@ -148,9 +174,49 @@ ContactPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/**
+ * Created by alex on 03/11/2017.
+ */
+
+
+var ShopPage = (function () {
+    function ShopPage(navParams) {
+        this.chatParams = {};
+        console.log('Passed params', navParams.data);
+        this.chatParams = navParams.data;
+    }
+    return ShopPage;
+}());
+ShopPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-shop',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/shop/shop.html"*/'<ion-content>\n    <ion-list>\n        <ion-list-header>Test page</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-start></ion-icon>\n            @ionicframework\n        </ion-item>\n    </ion-list>\n\n    <ion-list>\n        <ion-list-header>Test list 1</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-start></ion-icon>\n            <p>\n                This starter project comes with simple tabs-based layout for apps\n                that are going to primarily use a Tabbed UI.\n            </p>\n        </ion-item>\n    </ion-list>\n\n\n    <ion-list>\n        <ion-list-header>Test list 2</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-end></ion-icon>\n            <p>\n                Take a look at the <code>src/pages/</code> directory to add or change tabs,\n                update any existing page or create new pages.\n            </p>\n        </ion-item>\n    </ion-list>\n\n\n    <ion-list>\n        <ion-list-header>Test list 2</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-end></ion-icon>\n            <p>\n                Take a look at the <code>src/pages/</code> directory to add or change tabs,\n                update any existing page or create new pages.\n            </p>\n        </ion-item>\n    </ion-list>\n\n\n    <ion-list>\n        <ion-list-header>Test list 2</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-end></ion-icon>\n            <p>\n                Take a look at the <code>src/pages/</code> directory to add or change tabs,\n                update any existing page or create new pages.\n            </p>\n        </ion-item>\n    </ion-list>\n\n\n    <ion-list>\n        <ion-list-header>Test list 6</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-end></ion-icon>\n            <p>\n                Take a look at the <code>src/pages/</code> directory to add or change tabs,\n                update any existing page or create new pages.\n            </p>\n        </ion-item>\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/shop/shop.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+], ShopPage);
+
+//# sourceMappingURL=shop.js.map
+
+/***/ }),
+
+/***/ 196:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistoryPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -162,30 +228,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var HomePage = (function () {
-    function HomePage(navCtrl) {
+var HistoryPage = (function () {
+    function HistoryPage(navCtrl) {
         this.navCtrl = navCtrl;
     }
-    return HomePage;
+    return HistoryPage;
 }());
-HomePage = __decorate([
+HistoryPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    This starter project comes with simple tabs-based layout for apps\n    that are going to primarily use a Tabbed UI.\n  </p>\n  <p>\n    Take a look at the <code>src/pages/</code> directory to add or change tabs,\n    update any existing page or create new pages.\n  </p>\n</ion-content>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/home/home.html"*/
+        selector: 'page-history',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/history/history.html"*/'<ion-content>\n    <ion-list>\n        <ion-list-header>Follow us on Twitter</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-start></ion-icon>\n            @ionicframework\n        </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/history/history.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
-], HomePage);
+], HistoryPage);
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=history.js.map
 
 /***/ }),
 
-/***/ 196:
+/***/ 197:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecommendPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var RecommendPage = (function () {
+    function RecommendPage(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    return RecommendPage;
+}());
+RecommendPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-recommend',template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/recommend/recommend.html"*/'<ion-content no-border>\n  <ion-list id="appList" no-border>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/thumbnail-totoro.png">\n      </ion-thumbnail>\n      <h2>My Neighbor Totoro</h2>\n      <p>Hayao Miyazaki • 1988</p>\n      <button ion-button clear item-right>View</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室123</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室123</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n    <ion-item>\n      <ion-thumbnail item-left>\n        <img src="img/appImage.jpg">\n      </ion-thumbnail>\n      <h2>高中光学-仿真物理实验室123</h2>\n      <p>高中 | 3次下载</p>\n      <p>2017-06-26</p>\n      <button ion-button icon-only item-right>下载</button>\n    </ion-item>\n\n    <!--<ion-item>-->\n    <!--<ion-label>Pepperoni</ion-label>-->\n    <!--<ion-toggle [(ngModel)]="pepperoni" (ionChange)="output(pepperoni)"></ion-toggle>-->\n    <!--</ion-item>-->\n\n    <!--<ion-item>-->\n    <!--<ion-label>Sausage</ion-label>-->\n    <!--<ion-toggle [(ngModel)]="sausage" disabled="true"></ion-toggle>-->\n    <!--</ion-item>-->\n\n    <!--<ion-item>-->\n    <!--<ion-label>Mushrooms</ion-label>-->\n    <!--<ion-toggle [(ngModel)]="mushrooms" (ionChange)="output(mushrooms)"></ion-toggle>-->\n    <!--</ion-item>-->\n  </ion-list>\n\n\n  <!--<h2>Welcome to Ionic!</h2>-->\n  <!--<p>-->\n    <!--This starter project comes with simple tabs-based layout for apps-->\n    <!--that are going to primarily use a Tabbed UI.-->\n  <!--</p>-->\n  <!--<p>-->\n    <!--Take a look at the <code>src/pages/</code> directory to add or change tabs,-->\n    <!--update any existing page or create new pages.-->\n  <!--</p>-->\n  <!--<h2>Welcome to Ionic!</h2>-->\n  <!--<p>-->\n    <!--This starter project comes with simple tabs-based layout for apps-->\n    <!--that are going to primarily use a Tabbed UI.-->\n  <!--</p>-->\n  <!--<p>-->\n    <!--Take a look at the <code>src/pages/</code> directory to add or change tabs,-->\n    <!--update any existing page or create new pages.-->\n  <!--</p>-->\n  <!--<h2>Welcome to Ionic!</h2>-->\n  <!--<p>-->\n    <!--This starter project comes with simple tabs-based layout for apps-->\n    <!--that are going to primarily use a Tabbed UI.-->\n  <!--</p>-->\n  <!--<p>-->\n    <!--Take a look at the <code>src/pages/</code> directory to add or change tabs,-->\n    <!--update any existing page or create new pages.-->\n  <!--</p>-->\n  <!--<h2>Welcome to Ionic!</h2>-->\n  <!--<p>-->\n    <!--This starter project comes with simple tabs-based layout for apps-->\n    <!--that are going to primarily use a Tabbed UI.-->\n  <!--</p>-->\n  <!--<p>-->\n    <!--Take a look at the <code>src/pages/</code> directory to add or change tabs,-->\n    <!--update any existing page or create new pages.-->\n  <!--</p>-->\n  <!--<h2>Welcome to Ionic!</h2>-->\n  <!--<p>-->\n    <!--This starter project comes with simple tabs-based layout for apps-->\n    <!--that are going to primarily use a Tabbed UI.-->\n  <!--</p>-->\n  <!--<p>-->\n    <!--Take a look at the <code>src/pages/</code> directory to add or change tabs,-->\n    <!--update any existing page or create new pages.-->\n  <!--</p>-->\n</ion-content>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/pages/recommend/recommend.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+], RecommendPage);
+
+//# sourceMappingURL=recommend.js.map
+
+/***/ }),
+
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(217);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -193,27 +294,31 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 215:
+/***/ 217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_geo_geo__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_history_history__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_shop_shop__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_recommend_recommend__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__hero_service__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -233,10 +338,11 @@ AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_4__pages_about_about__["a" /* AboutPage */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__["a" /* ContactPage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__["a" /* TabsPage */]
+            __WEBPACK_IMPORTED_MODULE_4__pages_geo_geo__["a" /* GeoPage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_shop_shop__["a" /* ShopPage */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_history_history__["a" /* HistoryPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_recommend_recommend__["a" /* RecommendPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -247,15 +353,17 @@ AppModule = __decorate([
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_4__pages_about_about__["a" /* AboutPage */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__["a" /* ContactPage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__["a" /* TabsPage */]
+            __WEBPACK_IMPORTED_MODULE_4__pages_geo_geo__["a" /* GeoPage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_shop_shop__["a" /* ShopPage */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_history_history__["a" /* HistoryPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_recommend_recommend__["a" /* RecommendPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
-            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
+            __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
+            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
+            __WEBPACK_IMPORTED_MODULE_11__hero_service__["a" /* HeroService */]
         ]
     })
 ], AppModule);
@@ -264,13 +372,13 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 256:
+/***/ 258:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(192);
@@ -303,12 +411,37 @@ var MyApp = (function () {
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/alex/Documents/Mobile_Development/labapp-mobile/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
 
+/***/ }),
+
+/***/ 267:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HEROS; });
+var HEROS = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+];
+//# sourceMappingURL=mock-heroes.js.map
+
 /***/ })
 
-},[196]);
+},[198]);
 //# sourceMappingURL=main.js.map
