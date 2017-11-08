@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "supervisor ./bin/www",
+    "start": "rm page*/*; supervisor ./bin/www",
     "prestart": "echo \" this is pre start \"",
     "poststart": "echo \" this is post start \"",
     "clean": "ionic-app-scripts clean",
@@ -13,6 +13,7 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
+    "@angular/animations": "*",
     "@angular/common": "4.4.4",
     "@angular/compiler": "4.4.4",
     "@angular/compiler-cli": "4.4.4",

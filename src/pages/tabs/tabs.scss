@@ -13,7 +13,7 @@ page-tabs {
       background-color: transparent !important;
     }
 
-    .item-ios *, .item-md * , .item-wp{
+    .item-ios *, .item-md * , .item-wp *{
       color: $white !important;
       line-height: 1.5;
     }
@@ -36,6 +36,7 @@ page-tabs {
       background-color: white !important;
       height: auto;
       line-height: 3rem;
+      font-size: 16px;
     }
 
     ion-title {
@@ -75,8 +76,8 @@ page-tabs {
   }
 
   div.tabbar {
-    top: 100px !important;
-    height: 40px;
+    top: 10rem !important;
+    height: 4rem;
   }
 
   div.searchbar-search-icon {
@@ -84,9 +85,9 @@ page-tabs {
   }
 
   div.tab-highlight {
-    //width: 20px !important;
-    height: 4px !important;
-    background: black !important;
+    ////width: 20px !important;
+    //height: 4px !important;
+    //background: black !important;
   }
 
   button.searchbar-clear-icon {
@@ -96,7 +97,6 @@ page-tabs {
   #search .searchbar-input {
     border-radius: 21px;
     padding: 6px 25px;
-    width: 90%;
     margin: 0 auto;
   }
 

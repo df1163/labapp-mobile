@@ -23,7 +23,7 @@
         <ion-grid>
             <ion-row>
                 <ion-col col-11 *ngIf="!searchPanel">
-                    <ion-item>
+                    <ion-item @fadeIn>
                         <ion-avatar item-start>
                             <img src="/img/personal-head-visitor.png" width="50px" height="50px">
                         </ion-avatar>
@@ -32,10 +32,10 @@
                     </ion-item>
                 </ion-col>
                 <ion-col col-1 *ngIf="searchPanel">
-                    <ion-icon name="arrow-back" (click)="returnBack()"></ion-icon>
+                    <ion-icon name="arrow-back" (click)="returnBack()" @fadeIn></ion-icon>
                 </ion-col>
                 <ion-col col-10 *ngIf="searchPanel">
-                    <ion-searchbar id='search' animated="true" placeholder="输入您想搜索的内容"
+                    <ion-searchbar @fadeIn id='search' animated="true" placeholder="输入您想搜索的内容"
                                    (ionInput)="onInput($event)"
                             [(ngModel)]="myInput"
                             [showCancelButton]="false"
@@ -53,7 +53,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-tabs selectedIndex="3" tabbarLayout="icon-left" tabsHighlight="true" tabsPlacement="top">
+<ion-tabs selectedIndex="0" tabbarLayout="icon-left" tabsHighlight="true" tabsPlacement="top">
     <!--<ion-tabs selectedIndex="0" tabbarLayout="icon-left" tabsPlacement="top">-->
     <ion-tab [root]="tab1Root" tabTitle="云推送应用"></ion-tab>
     <ion-tab [root]="tab2Root" [rootParams]="chatParams" tabTitle="应用商城"></ion-tab>
