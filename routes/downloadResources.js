@@ -3,7 +3,7 @@
  */
 var fs = require("fs"), request = require('request');
 
-var cookie_val = 'FedAuth=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U2VjdXJpdHlDb250ZXh0VG9rZW4gcDE6SWQ9Il8yYjZlZTc3ZS0zMjQwLTQ4ZDgtOTJhYi05MTNhZjdhN2ZhNjQtOTQwNTVFRjlDMzM2RjBDMDg3Q0YxM0VBODYyMTA1RjQiIHhtbG5zOnAxPSJodHRwOi8vZG9jcy5vYXNpcy1vcGVuLm9yZy93c3MvMjAwNC8wMS9vYXNpcy0yMDA0MDEtd3NzLXdzc2VjdXJpdHktdXRpbGl0eS0xLjAueHNkIiB4bWxucz0iaHR0cDovL2RvY3Mub2FzaXMtb3Blbi5vcmcvd3Mtc3gvd3Mtc2VjdXJlY29udmVyc2F0aW9uLzIwMDUxMiI+PElkZW50aWZpZXI+dXJuOnV1aWQ6NmU1ODI0YmYtZDA3NC00YzM3LWIyMWQtNGE5MTZlN2Y1ZDI2PC9JZGVudGlmaWVyPjxDb29raWUgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwNi8wNS9zZWN1cml0eSI+THlQK29DL0NwNVIvQUdta01XcU9OUTU2L2RIYk0wME1vOWRWTjk4Z2wyZEVIN0Z6Sis5TU8yeitYNDl6VjRIckEwTlg0ZFJaOC9EQzQwZ296VkF0a1B4SlgyVi9aUFFSTVpudVJFRTJWcXArZXgwdVMwc3NSZ3VpWmNYcytjQkU1R0VOQUFtTkF5S1l1N1owK25CcTFqaytpYThlR0Y5dzVnbnBmSGF6d2QxeGtsZmRDSWZlSlE4TXJjcHlXaWkwYlN3amlVckdva0VzanRNZ25TVzZLMVptZEt2YnFFWTdiYTFneGc0ZFBjL2JYZGhoYjBSMUlHSXNxZU5pRUhyVVE0NC90MjNwRThuQ1FsQ21JRUg2Sll3V1JCK1dzUGdYbkxoeDgvdjFXREJoLzdnd2hvL1doVzQ5anpFK2NwSzVMcmhCUUxyYStzTGlYbDRkRVNDc1ZHMnNVVHozeDNlZ3M3UVNZZ01kdDkzTnUxWTNlVUxOb3ZiMkgvTFB6S0phNzIrN09YVXJabUx0Q1pjSHJpYk5qd3RTckJNOEJNR3ZTQzd0Q2VnZmpUYWUwSUY2VFZqd0ZHRDBubXpram5wTTdpdVpUbExNQlh2eTZwaGducFVuVmtPSExPTXNkYm5kdkUrOWN5YXozM0lZdUhIMDVRbGYxRnZlMTZnRFhERjJrYnl0WEUvVEM3Mi8zNmZtQlRwaEdtdU5tQUJPMktMa2pzdWcxbWZXb0tiQm1tdGFOVjZ4bFpWMGRqK2hUT3pwNkxlWXAvemRzdGVWQXBQNE56TU1RcEgrdk9BUmxKamJCUE5XUVRHN0VJTkNzUkg3TDh4aDloNEdNamp2emZwUE5JNGIyZDVibmU3OXk0QVYzZkJqa0JOdFFUeFFYYXNic3RkVjZNK1EzUmErbHNMY2RTSHJoRFVGajFqK08xZTNDdzBkT3NLRGVuZ2Y0cVB0R2VRY21sN2tSUjROYnZwbW4yeHBuaEVjT0hBUjd0WkF3cHV3MjNRYkE1SXpyU21JTkdCU25KMG5CZXpzQ2ZLeUNRYmJPNlYxeTNhdzJtSFU3OGJZT093bjFzeGtFUTZLaWNwMGpyQk9HamdmdGpmd0M2SVpvdkVwMlVxK1RoR09VRmp4bFV3cU8vSFo4SVlHbFRLM1lnb1lYaHUzUUgzUVZQbWtPeStBWkgxRDArUU9vWUNaV0pDMFdGbDFOOXUxVnpndWNkVkV0T3Q3L1NSQW9nQlF2V1RrSExiZ0Z1RWx2cXdGVisvNVhKeUNuQ1pLU2pEZ05kVlZ1blRNNGN0T1JhYXFXZy8zYXN4ZHVGdXVaYVp4VCswbmhjUWN2UkFZcTVoczE4Sjc5b2Yrc1g1VzNka2w5NTFWb2wzQzRvVFNnUzhmbGVGL1FnZi9PekVGTjNV; FedAuth1=dXFoQ2plWncvdkhYaDU2UGpsWkYxak9Ua05WaTJkYlcyeGJUdGIrYTZGdk1WUk9YYVhzTHFyazUxdmg1OUVzbzZHL2wyRlIzK2hPRkFMODROWGRNVWpyOEEvZFZBeS8vNjVFNGx4K0VrYzlFRHVPc3FXSVlBZ05HM0duUTdYZU9KOVkxMUFjSWJ3YlNHRmFsdlF2TldNYTBNQjFrZ2UxaFpoTEcvOGtRTlNZVzFkRmEvRE9PblpxbVhNbWJCRldMek9kOHpXUUdKa2cxamVrR1kzTEdJbmFuTWNTdVIyaWVVMitKdFo5RExDSFZScFF5SkpubDF2eUgyNG5zTzFMTS9EZjkrTWdBY3o1S0xYWnhrVFdIZGtFMVEzZDlyenVYZmtzRUN0NXI3bTNleVEvd0d2WDZIelBEVG9yT3M1QlNmZ0d2bkNJVFdwaGxuZDdmcVFxZWtlcXd6VmgvamM2TCtzRUd6bDRJWGtQNkhQL3lEQ0w1RFFMNmRMTjc3RXIyVzZxcXp1RElDKzQ4MXMrS1pPaEMzbjArY0Z5WGdSVWxwcTA4MHRWTnVnTEZTdGRzTHlCUWQvMmx0ZXJkYXh4Vm9XMlNUNEdqbm1ZTDZTMHBLM3Y0ajlmZzNza3JEc0x2Smt3Q1hXNGZUd2Nzejg1SnVzay9WZUI5NkhGMjgwZ0NtOU14aGFob0duL052OG5vbnpGazRmeHEyeTNpcW45eVA5d3kvT3J1dVh3NzdheTJzSVJabnY4dktaZ2tzbHliTHFZK3dyc3FnTjFGUGlZWnFRL0JYeDZBSkZsNlpxZlpuL1FBYis5emliYmw5OVRDTzZRby9GWnpwelQrODRaNkdTUVFoTWt0RTNTZU9PdE5MUC9yeHlrT0pMMXBndWN1R1B4dWRKZlF1dGxndVMvY0J0TTMwRlhGVlRaeUFISlZiSDFRd1hXVDhCaFBiPC9Db29raWU+PC9TZWN1cml0eUNvbnRleHRUb2tlbj4=; Hm_lvt_d39e67062f2c834c707b85a43e564cd4=1510134907,1510141179,1510141187,1510150214; Hm_lpvt_d39e67062f2c834c707b85a43e564cd4=1510150214';
+var cookie_val = 'FedAuth=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U2VjdXJpdHlDb250ZXh0VG9rZW4gcDE6SWQ9Il8yYjZlZTc3ZS0zMjQwLTQ4ZDgtOTJhYi05MTNhZjdhN2ZhNjQtNjJCREUxNTU0RjYyQjk5NzMzMEU1NzdGRDg2QUM4RkEiIHhtbG5zOnAxPSJodHRwOi8vZG9jcy5vYXNpcy1vcGVuLm9yZy93c3MvMjAwNC8wMS9vYXNpcy0yMDA0MDEtd3NzLXdzc2VjdXJpdHktdXRpbGl0eS0xLjAueHNkIiB4bWxucz0iaHR0cDovL2RvY3Mub2FzaXMtb3Blbi5vcmcvd3Mtc3gvd3Mtc2VjdXJlY29udmVyc2F0aW9uLzIwMDUxMiI+PElkZW50aWZpZXI+dXJuOnV1aWQ6ZTBmMmE2MTEtYWU4ZC00MzU2LWJhOTYtYmM1NGVmZDMyNmNhPC9JZGVudGlmaWVyPjxDb29raWUgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwNi8wNS9zZWN1cml0eSI+R2NybEZnaVNwZHlIVWNQL1VsaXNvNkludkgyNnd4NDdoUzZzeUMwWE9XbmlUKzdKa2ZZcWxnZm1ybHdWWksySXVpMkVYamExZCt4SU1DSElkdG9sTG1yS3MvdHgrYlBFazdvbEE3Z3NEbGFWREUvbnI4MzEvcDVWVXAxMDZ3K0IvaTFkWjZZZjF6VFQwRzkreGlZejl4V0VUNVdhbllZQlFpd3FpNFhmSkdpSnh2NW1aUGd5QXRLbkY3QVFzSUM4ZEN6a1lyMXowc0pud09pWkdIaDRpMTc2ajdyblBoWHJBY0d3d0YwMlRaQnZVb3JlSVNSSWtUenNoUkVPTi9xREV4Z2ZpSXBNWENXK2RXYnh2Z0FPWjNXMEYvZWFOUWpRTjZ3ZzVhR3VxNkQ5UkxUOUtGZGpyZUY3K0s5WmpGRzJLcWdjVHNINXVQcWUzZlliQU40R1MxbzdVWVpXVC83bmh2YnZJRXVwd25Ka2RXZmlPMWFLbmtFM1dDQ1JuU1E1cTdxLzVFZ0hxaGdIM25ob2FlQlBSTXRiMGtDLzFhcjViUXZRQWVkV3IwY2VwRmUvNlo0YkFjb1dGTU53cUdKRjhQN215WUQzcUFBTjRmWEpueGUzcmRLTWZ0dDhJS2t5d1VETUFULzlwOFVTUGxHSU9ST21jK0cxc21jQU1JU3dCNHBldjNDRmI3bFQ3ZWFmSXovRkx4ekdZb3kwUHZYQ3M1WGZybmZ6R1FlMVdQblhwSFBoL1NxZWJPRUw2WDJiTnlLMUwxK24zckdpMDBEUGJJWVZob3BtYUlKUE5MUVhSam5ZMmJvbE5XRVJQUWRVY0ppa2xFUGx1ZTR5K1hxL2lnOFdPT2xRQmlWTjFBdDYwYmRuTjRzekRTUXM1OVpMMFhHakpFd3IzalBLVWRCYUZnREtWZGpSZFVwN3Y2c3JrNklST0hqSmlwM09ZTCtjM1JtTWRFYXI1QW41a25vOHFXUWlnb3dXbkowbExmYUZLNDIvRW9OQ2UyVEpFRlBMTkNBOU1neTJIQjE0V2p0OUZHRkhmR3NzYlAvQXVQTzlFU3U0eE5GZkRKOXkyVlFITHhWQmFKMVJXVVcwSXJlR2JTQ2tGMFlnVi9ManB0NEZLV2tiNktMNWZPMkxvaDJjYjRwcy91emZVc2JFdDhZQkl4QWp1a1laQXdiZ28vb0FkZHZkWk1Zbml5OFAweXVEalNEMlIwZGdXS1JLWEYySS9NZ2RRU0JHbTlvMXd0VE1HY1RSdlg5RXdXNHRMM1FjM3BvTHV4cHlHQStxSWZVYXVZU1phdXJyOXpoM1JBVVFQeUtOMU95MFZOalFGTy9NRk42cjNSRzBHZHhvTWNRYlJEQ3hHRFZ4Mnk0NlNpMUhwTm43SUpFMWc1dkJoNG9HZ0lT; FedAuth1=b296Mm5nVGxNbTVIa2wwZGlWd0E2VkV3TEJpS3dVd0crZFo3enRyalJDWDYxMlZsUzQ1MVJIb0ZUWEZFYzh1Zlh0VThjNXRwTTY1WEN3ZTNOeWRHb0xMYU1Wb2xIdGpKVjY2YlZKTHRwZjd4a01CaTdxb0RYWEgwYWpUeGxlL0g1dTNFSDdrZ0FzeHdqU05FbjhJK0VqWi9PeWtaR3d4anVyc0RnQk5Ia3dpZlRiVXZBdUM4Y3l6VHg1aVdYL1c2QXJ3ZHMrZC85UytYMTM4eUxVbkVkNnRvYU55a3F1MkpjSVpBQ1RyWVBVdzNQdGVEWTlmbm9pSW0velhsaW9ZcDEvdDdtcFBUWkVwWGdOWmhQYUJlUGxXVzRiaHNYSUExbU4xSWVGazlWUEdSTDBER1QwQ29rQlhYS0lndldmUHZmY2Z6Z1VVemdWaE84ZTVUUzBSblRtdmtrdEUxUUZIY0doZy9vcEl0SmFON3hFZHVwWXhuNmx4NTNJZjBMVTBLODlxaDduSzFBMVN6aGpxZUJTUnlCcS9IN2tzMGQ4NEJybmJDVmtQb0hVL2FQZ1N3ZkRua3prTWVoaTd0Ujd1L2tOdU4vRnhYMnVqeGN0SUNTRlF2cHJTWnJFK0VvS3BqWFdCNUNJTmVrc3FOcm56ZkxCcFZGSU1yN3hBQUJEb1d2dVM5Y3dBUUVscjVDRWFadDNINkE2V2lJSVNYb3hjdE8vczVMZXdqSnpEb1h3ejh4Z3JZSGpaSVJJNXQva3VCMlRZVWFKellWM0FZSjcxdTRFZ3JNRVNOaG1rV2FINU9SdzJReUJSdUp2c3oyak9JMkRxT3pENDBpYS9keGZmR2QrZmh1ZXhhQmF3RkZ2dngzWU4wZE5zY2hKTGhTaEFnNkF6anoyVVFPREdGakllbldyK0M0UlpjeFgwSnJocDVlTSs0WGVjYjRvZ1ZRPC9Db29raWU+PC9TZWN1cml0eUNvbnRleHRUb2tlbj4=; Hm_lvt_d39e67062f2c834c707b85a43e564cd4=1510141179,1510141187,1510150214,1510152116; Hm_lpvt_d39e67062f2c834c707b85a43e564cd4=1510152116';
 
 var headers = {
     'cookie': cookie_val,
@@ -32,75 +32,6 @@ for (let i = 0; i < 15; i++) {
     }
 }
 
-function downloadPage(apps, resolveFunction, rejectFunction, pages, page) {
-    Promise.all(apps.map(function (app) {
-        return new Promise(function (resolve, reject) {
-            downloadFiles(app, resolve, reject, pages, page, apps);
-        });
-    })).then(function () {
-        resolveFunction();
-        console.log('Page is downloaded!');
-    }).catch(function () {
-        rejectFunction();
-    });
-}
-
-function downloadFiles(app, resolveFunction, rejectFunction, pages, page, apps) {
-    let urlArray = app.AppLogo.split('/'), uniqueImgID = urlArray[urlArray.length - 1].split('.')[0],
-        fileImgType = urlArray[urlArray.length - 1].split('.')[1], name = app.AppName,
-        file = app.AppUrl.split('/'), fileName = file[file.length - 1].split('.')[0],
-        fileType = file[file.length - 1].split('.')[1];
-
-    Promise.all([
-        new Promise(function (resolve, reject) {
-            // request({
-            //         url: 'http://yun.pte.sh.cn' + app.AppLogo,
-            //         headers: headers
-            //     },
-            //         function (err, res, body) {
-            //             resolve();
-            //         });
-            request({
-                url: 'http://yun.pte.sh.cn' + app.AppLogo,
-                headers: headers
-            }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + uniqueImgID + '.' + fileImgType)).on('close', function () {
-                resolve();
-            }).on('error', function () {
-                console.log('ERROR downloading pics');
-                reject();
-            });
-
-        })
-        // , new Promise(function (resolve, reject) {
-        //
-        //     // request({
-        //     //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
-        //     //         headers: headers
-        //     //     },
-        //     //     function (err, res, body) {
-        //     //         resolve();
-        //     //     });
-        //     request({
-        //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
-        //         headers: headers
-        //     }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + name + '.' + fileType)).on('close', function () {
-        //         resolve();
-        //     }).on('error', function () {
-        //         console.log('ERROR downloading files');
-        //         reject();
-        //     });
-        //
-        // })
-    ]).then(function (res) {
-        resolveFunction();
-        console.log(apps.indexOf(app) + ' within page ' + pages.indexOf(page) + ' finished all!');
-    }).catch(function (e) {
-        rejectFunction();
-        console.log(e);
-        console.log('Error with downloading app process!');
-    });
-}
-
 function downloadCall() {
     Promise.all(pagesNum.map(function (num) {
         return new Promise(function (resolve, reject) {
@@ -115,10 +46,54 @@ function downloadCall() {
             });
         });
     })).then(function (pages) {
-
         Promise.all(pages.map(function (page) {
             return new Promise(function (resolve, reject) {
-                downloadPage(page, resolve, reject, pages, page);
+                Promise.all(page.map(function (app) {
+                    return new Promise(function (resolve, reject) {
+                        //downloadFiles(app, resolve, reject, pages, page, page);
+                        let urlArray = app.AppLogo.split('/'),
+                            uniqueImgID = urlArray[urlArray.length - 1].split('.')[0],
+                            fileImgType = urlArray[urlArray.length - 1].split('.')[1], name = app.AppName,
+                            file = app.AppUrl.split('/'), fileName = file[file.length - 1].split('.')[0],
+                            fileType = file[file.length - 1].split('.')[1];
+
+                        Promise.all([
+                            new Promise(function (resolve, reject) {
+                                request({
+                                    url: 'http://yun.pte.sh.cn' + app.AppLogo,
+                                    headers: headers
+                                }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + uniqueImgID + '.' + fileImgType)).on('close', function () {
+                                    resolve();
+                                }).on('error', function () {
+                                    console.log('ERROR downloading pics');
+                                    reject();
+                                });
+
+                            }),
+                            new Promise(function (resolve, reject) {
+                                request({
+                                    url: 'http://yun.pte.sh.cn' + app.AppUrl,
+                                    headers: headers
+                                }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + fileName + fileType ? '.' + fileType : '')).on('error', function () {
+                                    console.log('ERROR downloading file');
+                                    reject();
+                                });
+                            })
+                        ]).then(function () {
+                            resolve();
+                            console.log(page.indexOf(app) + ' within page ' + pages.indexOf(page) + ' finished all!');
+                        }).catch(function (e) {
+                            reject();
+                            console.log(e);
+                            console.log('Error with downloading app process!');
+                        });
+                    });
+                })).then(function () {
+                    resolve();
+                    console.log('Page is downloaded!');
+                }).catch(function () {
+                    reject();
+                });
             })
         })).then(function () {
 
@@ -172,6 +147,74 @@ function downloadCall() {
 //     });
 // }
 
+//function downloadPage(apps, resolveFunction, rejectFunction, pages, page) {
+//     Promise.all(apps.map(function (app) {
+//         return new Promise(function (resolve, reject) {
+//             downloadFiles(app, resolve, reject, pages, page, apps);
+//         });
+//     })).then(function () {
+//         resolveFunction();
+//         console.log('Page is downloaded!');
+//     }).catch(function () {
+//         rejectFunction();
+//     });
+// }
+//
+// function downloadFiles(app, resolveFunction, rejectFunction, pages, page, apps) {
+//     let urlArray = app.AppLogo.split('/'), uniqueImgID = urlArray[urlArray.length - 1].split('.')[0],
+//         fileImgType = urlArray[urlArray.length - 1].split('.')[1], name = app.AppName,
+//         file = app.AppUrl.split('/'), fileName = file[file.length - 1].split('.')[0],
+//         fileType = file[file.length - 1].split('.')[1];
+//
+//     Promise.all([
+//         new Promise(function (resolve, reject) {
+//             // request({
+//             //         url: 'http://yun.pte.sh.cn' + app.AppLogo,
+//             //         headers: headers
+//             //     },
+//             //         function (err, res, body) {
+//             //             resolve();
+//             //         });
+//             request({
+//                 url: 'http://yun.pte.sh.cn' + app.AppLogo,
+//                 headers: headers
+//             }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + uniqueImgID + '.' + fileImgType)).on('close', function () {
+//                 resolve();
+//             }).on('error', function () {
+//                 console.log('ERROR downloading pics');
+//                 reject();
+//             });
+//
+//         })
+//         // , new Promise(function (resolve, reject) {
+//         //
+//         //     // request({
+//         //     //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
+//         //     //         headers: headers
+//         //     //     },
+//         //     //     function (err, res, body) {
+//         //     //         resolve();
+//         //     //     });
+//         //     request({
+//         //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
+//         //         headers: headers
+//         //     }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + name + '.' + fileType)).on('close', function () {
+//         //         resolve();
+//         //     }).on('error', function () {
+//         //         console.log('ERROR downloading files');
+//         //         reject();
+//         //     });
+//         //
+//         // })
+//     ]).then(function (res) {
+//         resolveFunction();
+//         console.log(apps.indexOf(app) + ' within page ' + pages.indexOf(page) + ' finished all!');
+//     }).catch(function (e) {
+//         rejectFunction();
+//         console.log(e);
+//         console.log('Error with downloading app process!');
+//     });
+// }
 
 // var options = {
 //     hostname: 'yun.pte.sh.cn',

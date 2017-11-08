@@ -25691,7 +25691,7 @@ page-tabs ion-header .item-ios, page-tabs ion-header .item-md, page-tabs ion-hea
   background-color: transparent !important;
 }
 
-page-tabs ion-header .item-ios *, page-tabs ion-header .item-md *, page-tabs ion-header .item-wp {
+page-tabs ion-header .item-ios *, page-tabs ion-header .item-md *, page-tabs ion-header .item-wp * {
   color: #ffffff !important;
   line-height: 1.5;
 }
@@ -25715,6 +25715,7 @@ page-tabs ion-header .searchbar-ios .searchbar-input {
   background-color: white !important;
   height: auto;
   line-height: 3rem;
+  font-size: 16px;
 }
 
 page-tabs ion-header ion-title {
@@ -25753,17 +25754,12 @@ page-tabs .toolbar-background {
 }
 
 page-tabs div.tabbar {
-  top: 100px !important;
-  height: 40px;
+  top: 10rem !important;
+  height: 4rem;
 }
 
 page-tabs div.searchbar-search-icon {
   display: none;
-}
-
-page-tabs div.tab-highlight {
-  height: 4px !important;
-  background: black !important;
 }
 
 page-tabs button.searchbar-clear-icon {
@@ -25773,7 +25769,6 @@ page-tabs button.searchbar-clear-icon {
 page-tabs #search .searchbar-input {
   border-radius: 21px;
   padding: 6px 25px;
-  width: 90%;
   margin: 0 auto;
 }
 
