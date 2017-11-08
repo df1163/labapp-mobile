@@ -50,7 +50,6 @@ function downloadCall() {
             return new Promise(function (resolve, reject) {
                 Promise.all(page.map(function (app) {
                     return new Promise(function (resolve, reject) {
-                        //downloadFiles(app, resolve, reject, pages, page, page);
                         let urlArray = app.AppLogo.split('/'),
                             uniqueImgID = urlArray[urlArray.length - 1].split('.')[0],
                             fileImgType = urlArray[urlArray.length - 1].split('.')[1], name = app.AppName,
@@ -68,17 +67,18 @@ function downloadCall() {
                                     console.log('ERROR downloading pics');
                                     reject();
                                 });
-
-                            }),
-                            new Promise(function (resolve, reject) {
-                                request({
-                                    url: 'http://yun.pte.sh.cn' + app.AppUrl,
-                                    headers: headers
-                                }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + fileName + fileType ? '.' + fileType : '')).on('error', function () {
-                                    console.log('ERROR downloading file');
-                                    reject();
-                                });
                             })
+                            // , new Promise(function (resolve, reject) {
+                            //     request({
+                            //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
+                            //         headers: headers
+                            //     }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + name + '.' + fileType)).on('close', function () {
+                            //         resolve();
+                            //     }).on('error', function () {
+                            //         console.log('ERROR downloading files');
+                            //         reject();
+                            //     });
+                            // })
                         ]).then(function () {
                             resolve();
                             console.log(page.indexOf(app) + ' within page ' + pages.indexOf(page) + ' finished all!');
@@ -186,26 +186,26 @@ function downloadCall() {
 //             });
 //
 //         })
-//         // , new Promise(function (resolve, reject) {
-//         //
-//         //     // request({
-//         //     //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
-//         //     //         headers: headers
-//         //     //     },
-//         //     //     function (err, res, body) {
-//         //     //         resolve();
-//         //     //     });
-//         //     request({
-//         //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
-//         //         headers: headers
-//         //     }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + name + '.' + fileType)).on('close', function () {
-//         //         resolve();
-//         //     }).on('error', function () {
-//         //         console.log('ERROR downloading files');
-//         //         reject();
-//         //     });
-//         //
-//         // })
+//         , new Promise(function (resolve, reject) {
+//
+//             // request({
+//             //         url: 'http://yun.pte.sh.cn' + app.AppUrl,
+//             //         headers: headers
+//             //     },
+//             //     function (err, res, body) {
+//             //         resolve();
+//             //     });
+//             request({
+//                 url: 'http://yun.pte.sh.cn' + app.AppUrl,
+//                 headers: headers
+//             }).pipe(fs.createWriteStream('page' + pages.indexOf(page) + '/' + name + '.' + fileType)).on('close', function () {
+//                 resolve();
+//             }).on('error', function () {
+//                 console.log('ERROR downloading files');
+//                 reject();
+//             });
+//
+//         })
 //     ]).then(function (res) {
 //         resolveFunction();
 //         console.log(apps.indexOf(app) + ' within page ' + pages.indexOf(page) + ' finished all!');
