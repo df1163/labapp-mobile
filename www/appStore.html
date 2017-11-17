@@ -63,76 +63,19 @@
             <div class="sort-option" data-sort="popular"><span>最热</span></div>
         </div>
     </div>
-    <div class="cell" data-appId="cc38dd51-8207-491d-a97f-aea2d161bf48">
-        <div class="cell-icon float-left" style="background: url('/img/appImage.jpg');background-size: cover"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
+
+    <% items.forEach(function(item, index){%>
+
+        <div class="cell" data-appId="<%= item %> ">
+            <div class="cell-icon float-left" style="background: url('/assets/imgs/appImage<%= index%>.png'); background-size: cover"></div>
+            <div class="cell-body text-left">
+                <div class="cell-title">高中光学-仿真物理实验室</div>
+                <div>高中<span>|</span>3次下载</div>
+                <div>2017-07-26</div>
+                <button class="cell-button">下载</button>
+            </div>
         </div>
-    </div>
-    <div class="cell" data-appId="9771981c-36ff-4f97-ac73-0d52e59b1f85">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
-    <div class="cell" data-appId="4d60eef3-710b-4331-b1ba-a0fa0dbe661b">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
-    <div class="cell" data-appId="0eaef522-7314-4ac2-88f8-08ffe41ddecf">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
-    <div class="cell" data-appId="22ce4d2f-55ec-4d79-8a7d-897141820e63">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
-    <div class="cell" data-appId="1e257c39-849e-45ed-9e6a-8f012ccf2460">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
-    <div class="cell" data-appId="39e22d4b-4a31-4a8b-a080-c600bbb5f202">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
-    <div class="cell" data-appId="appId=f5039681-8d59-434f-bdcf-d6e3e0ea117c">
-        <div class="cell-icon float-left"></div>
-        <div class="cell-body text-left">
-            <div class="cell-title">高中光学-仿真物理实验室</div>
-            <div>高中<span>|</span>3次下载</div>
-            <div>2017-07-26</div>
-            <button class="cell-button">下载</button>
-        </div>
-    </div>
+
+
+    <% }) %>
 </div>

@@ -14936,7 +14936,7 @@ ion-list[inset] {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   color: #333;
-  background: transparent;
+  background: #1B1B20;
 }
 
 @media screen and (orientation: landscape) {
@@ -25679,133 +25679,272 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-tabs {
+@font-face {
+  font-family: "iconfont";
+  src: url("../assets/fonts/iconfont.eot?t=1508123065459");
+  /* IE9*/
+  src: url("../assets/fonts/iconfont.eot?t=1508123065459#iefix") format("embedded-opentype"), url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff"), url("../assets/fonts/iconfont.ttf?t=1508123065459") format("truetype"), url("../assets/fonts/iconfont.svg?t=1508123065459#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 1rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-back:before {
+  content: "\e697";
+}
+
+.icon-close:before {
+  content: "\e69a";
+}
+
+.icon-favorite:before {
+  content: "\e6a0";
+}
+
+.icon-less:before {
+  content: "\e6a5";
+}
+
+.icon-moreunfold:before {
+  content: "\e6a6";
+}
+
+.icon-more:before {
+  content: "\e6a7";
+}
+
+.icon-pic:before {
+  content: "\e6a8";
+}
+
+.icon-refresh:before {
+  content: "\e6aa";
+}
+
+.icon-search:before {
+  content: "\e6ac";
+}
+
+.icon-selected:before {
+  content: "\e6ad";
+}
+
+.icon-add:before {
+  content: "\e6b9";
+}
+
+.icon-filter:before {
+  content: "\e6f1";
+}
+
+.icon-navlist:before {
+  content: "\e6fa";
+}
+
+.icon-icondownload:before {
+  content: "\e714";
+}
+
+.icon-share:before {
+  content: "\e71d";
+}
+
+.icon-favorites:before {
+  content: "\e7ce";
+}
+
+.icon-fanhui:before {
+  content: "\e624";
+}
+
+float-buttonset #buttonset {
+  z-index: 500;
+  width: 20rem;
+  position: fixed;
+  left: 50%;
+  margin-left: -10rem;
+  bottom: 2rem;
+  height: 3.5rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #e1e1e1;
+  -webkit-transition: all 5s;
+  transition: all 5s;
+}
+
+float-buttonset #buttonset i {
+  color: #0B99F4;
+  margin-right: 0.7rem;
+}
+
+float-buttonset #buttonset > button:last-child {
+  border-right: none;
+}
+
+float-buttonset #buttonset button {
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  border: 0;
+  border-radius: 0rem;
+  border-right: 1px solid #e1e1e1;
+  background-color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+page-appDetail {
+  overflow: scroll;
+  margin: 40px 0 0;
+  bottom: 0px;
+  background-color: #F0F0F2;
+}
+
+page-appDetail ion-icon {
+  color: #0b99f4;
+}
+
+page-appDetail ion-item {
+  margin-bottom: 10px !important;
+}
+
+page-appDetail div.scroll-content {
+  margin-bottom: 40px;
+}
+
+page-appDetail img {
+  margin: 0 auto 20px;
+}
+
+page-appDetail h2 {
+  font-weight: bold !important;
+  line-height: 2;
   text-align: center;
 }
 
-page-tabs .toolbar-title {
-  color: #ffffff !important;
-}
-
-page-tabs ion-header .item-ios, page-tabs ion-header .item-md, page-tabs ion-header .item-wp {
-  background-color: transparent !important;
-}
-
-page-tabs ion-header .item-ios *, page-tabs ion-header .item-md *, page-tabs ion-header .item-wp * {
-  color: #ffffff !important;
-  line-height: 1.5;
-}
-
-page-tabs ion-header h2 {
-  font-size: 16px !important;
-  font-weight: bold !important;
-}
-
-page-tabs ion-header p {
-  line-height: 1 !important;
+page-appDetail p {
   font-size: 12px !important;
-  font-weight: lighten;
-  text-indent: 2px;
 }
 
-page-tabs ion-header .searchbar-ios .searchbar-input {
-  padding-left: calc(25% - 45px) !important;
-  position: relative;
-  top: 3px;
-  background-color: white !important;
-  height: auto;
-  line-height: 3rem;
-  font-size: 16px;
-}
-
-page-tabs ion-header ion-title {
-  background-color: #1B1B20;
-  height: 40px;
-  font-size: 20px;
+page-appDetail #headerItem p {
+  color: #999999 !important;
   line-height: 2;
+  text-align: center;
 }
 
-page-tabs ion-header ion-navbar, page-tabs ion-header .col {
+page-appDetail #bodyItem {
+  padding-bottom: 20px;
+}
+
+page-appDetail #bodyItem p {
+  width: 100%;
+  color: black;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.6;
+}
+
+page-appDetail #recommendBox {
+  margin: 20px 0 20px;
+  height: 140px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  min-width: 100%;
+  white-space: nowrap;
+}
+
+page-appDetail #recommendBox .tile {
+  display: inline-block;
+  width: 60px;
+  margin: 0 0 0 24px;
+}
+
+page-appDetail #recommendBox .tile:first-child {
+  margin: 0;
+}
+
+page-appDetail #recommendBox .cell-icon {
   height: 60px;
+  width: 60px;
+  border-radius: 10px;
 }
 
-page-tabs ion-header a.tab-button {
+page-appDetail #recommendBox .cell-button {
+  margin: 0 auto;
+  background-color: #3f98ed;
+  border: 0px;
+  border-radius: 5px;
   font-size: 14px;
+  color: #ffffff;
+  height: 3rem;
+  width: 6rem;
 }
 
-page-tabs ion-header ion-icon {
-  font-size: 2em;
-  line-height: 50px;
-  color: #ffffff !important;
+page-appDetail #recommendBox .cell-title {
+  margin: 10px 5px 10px;
+  font-size: 1rem;
+  max-width: 60px;
+  height: 30px;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
 }
 
-page-tabs ion-header ion-item {
-  height: 100%;
-  padding-left: 0 !important;
+page-appDetail .blue-button {
+  background-color: #0b99f4;
 }
 
-page-tabs ion-header div.item-inner {
+page-appDetail .yellow-button {
+  background-color: #63be0c;
+}
+
+page-appDetail button {
+  margin: 20px auto;
+  height: 45px;
+  width: 145px;
+  border-radius: 22px;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+}
+
+page-appDetail .item-inner {
   border: 0 !important;
 }
 
-page-tabs .toolbar-background {
-  background-image: -webkit-gradient(linear, left top, right top, from(#508DFF), to(#3BB8FE)) !important;
-  background-image: linear-gradient(to right, #508DFF 0%, #3BB8FE 100%) !important;
+page-recommend ion-thumbnail img {
+  border-radius: 5px;
+  width: 70px !important;
+  height: 70px !important;
 }
 
-page-tabs div.tabbar {
-  top: 10rem !important;
-  height: 4rem;
-}
-
-page-tabs div.searchbar-search-icon {
-  display: none;
-}
-
-page-tabs button.searchbar-clear-icon {
-  right: 25px !important;
-}
-
-page-tabs #search .searchbar-input {
-  border-radius: 21px;
-  padding: 6px 25px;
-  margin: 0 auto;
-}
-
-page-tabs ion-tab {
-  font-size: 0.875rem;
-  color: #666666;
-}
-
-page-tabs .list-ios, page-tabs .list-md, page-tabs .list-wp {
-  margin: 110px 0 0;
-}
-
-page-tabs ion-content {
-  background-color: #F0F0F2 !important;
-}
-
-page-tabs #appList h2 {
+page-recommend #appList h2 {
   font-weight: bold;
   font-size: 16px;
   line-height: 2;
 }
 
-page-tabs #appList p {
+page-recommend #appList p {
   font-size: 10px;
   line-height: 2;
 }
 
-page-tabs #appList .item-inner {
+page-recommend #appList .item-inner {
   border-bottom: 0;
 }
 
-page-tabs #appList ion-item {
+page-recommend #appList ion-item {
   border-bottom: 1px solid #dedede;
   height: 100px;
 }
 
-page-tabs #appList button[item-right] {
+page-recommend #appList button[item-right] {
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -25817,4 +25956,135 @@ page-tabs #appList button[item-right] {
   height: 30px;
   width: 60px;
   font-size: 14px;
+}
+
+page-recommend #appList img {
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+}
+
+page-shop .list-header-wp, page-shop .list-header-md, page-shop .list-header-ios {
+  background-color: #fff;
+}
+
+page-shop ion-list-header * {
+  color: #508DFF;
+  font-size: 2rem;
+}
+
+page-shop ion-card {
+  margin: 10px 0 10px !important;
+  width: 100% !important;
+}
+
+page-tabs {
+  text-align: center;
+}
+
+page-tabs ion-header ion-title {
+  background-color: #1B1B20;
+  height: 40px;
+  font-size: 20px;
+  line-height: 2;
+}
+
+page-tabs ion-header .toolbar-title {
+  color: #ffffff !important;
+}
+
+page-tabs ion-toolbar {
+  -webkit-transform: translate3d(0, 40px, 0);
+  transform: translate3d(0, 40px, 0);
+  height: 60px;
+}
+
+page-tabs ion-toolbar #avatarPanel {
+  background-color: transparent !important;
+}
+
+page-tabs ion-toolbar #avatarPanel * {
+  color: #ffffff !important;
+  line-height: 1.5;
+}
+
+page-tabs ion-toolbar #avatarPanel h2 {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+page-tabs ion-toolbar #avatarPanel p {
+  line-height: 1 !important;
+  font-size: 12px !important;
+  font-weight: lighten;
+  text-indent: 2px;
+}
+
+page-tabs ion-toolbar .searchbar-ios .searchbar-input {
+  padding-left: calc(25% - 45px) !important;
+  position: relative;
+  top: 3px;
+  background-color: #ffffff !important;
+  height: auto;
+  line-height: 3rem;
+  font-size: 16px;
+}
+
+page-tabs ion-toolbar .col {
+  height: 60px;
+}
+
+page-tabs ion-toolbar a.tab-button {
+  font-size: 14px;
+}
+
+page-tabs ion-toolbar ion-icon {
+  font-size: 2em;
+  line-height: 50px;
+  color: #ffffff !important;
+}
+
+page-tabs ion-toolbar ion-item {
+  height: 100%;
+  padding-left: 0 !important;
+}
+
+page-tabs ion-toolbar div.item-inner {
+  border: 0 !important;
+}
+
+page-tabs ion-toolbar .toolbar-background {
+  background-image: -webkit-gradient(linear, left top, right top, from(#508DFF), to(#3BB8FE)) !important;
+  background-image: linear-gradient(to right, #508DFF 0%, #3BB8FE 100%) !important;
+}
+
+page-tabs ion-toolbar div.searchbar-search-icon {
+  display: none;
+}
+
+page-tabs ion-toolbar button.searchbar-clear-icon {
+  right: 2.5rem !important;
+}
+
+page-tabs ion-toolbar #search .searchbar-input {
+  border-radius: 2rem;
+  padding: 0.6rem 2.5rem;
+  margin: 0 auto;
+}
+
+page-tabs div.tabbar {
+  top: 10rem !important;
+  height: 4rem;
+}
+
+page-tabs .list-ios, page-tabs .list-md, page-tabs .list-wp {
+  margin: 110px 0 0;
+}
+
+page-tabs ion-content {
+  background-color: #F0F0F2 !important;
+}
+
+page-tabs video {
+  width: 100%;
 }

@@ -19,7 +19,7 @@ var appsData = [
         }, {
             "Id": "9771981c-36ff-4f97-ac73-0d52e59b1f85",
             "AppName": "高中光学-仿真物理实验室（windows版）",
-            "AppLogo": "/AppShop/Upload/AppLogo/68f8d556-6e55-4ee4-976e-724111f52f2c.png",
+            "AppLogo": "/AppShop/Upload/AppLogo/appImage1.png",
             "AppSize": 20938051,
             "AppUrl": "/AppShop/Upload/AppFiles/c7196517-985c-4fb2-b837-4ed887c0aaa0.zip",
             "AppDescription": "适用平台：WinXP/Win7 \n“仿真物理实验室——光学”模块提供了一个实验器具完备的光学实验环境。一方面，教师可以利用它强大的功能和方便的操作把你丰富的光学知识轻松的转变为形象生动的物理课件，方便学生对于知识的掌握；另一方面，学生可以充分利用它的研究探讨性，来验证你所了解的光学知识，探讨研究你所感兴趣的一切光学现象，形成正确的研究科学知识的方法，在物理知识的世界里探索。它科学严谨的内部算法保证了这一探索的可行性和正确性。\n\n“仿真物理实验室——光学”模块是学生学习与探究奇妙光学世界的优秀工具，也是教师进行光学课程教学的优秀工具。",
@@ -67,7 +67,7 @@ var appsData = [
         }, {
             "Id": "0eaef522-7314-4ac2-88f8-08ffe41ddecf",
             "AppName": "初中电学-仿真物理实验室（windows版）",
-            "AppLogo": "/AppShop/Upload/AppLogo/1806e91e-8693-4fe8-bb0f-6bea51f0caaa.png",
+            "AppLogo": "/AppShop/Upload/AppLogo/appImage2.png",
             "AppSize": 8678739,
             "AppUrl": "/AppShop/Upload/AppFiles/2dda4477-b099-40b4-9ee9-05890f9f20bf.zip",
             "AppDescription": "适用平台：WinXP/Win7 \n仿真物理实验室电学模块提供电源、电阻、仪表、开关、输出、其它等多类、多种电子元件。并且 实验室提供了，灯泡、电铃等元件，让实验设计的电路生动活泼；\n可以应用这些电子元件搭建实验电路。连接串联与并联电路、用伏安法测试电阻、测量路端电压、用惠斯通电桥精确测量电阻、用电磁继电器实现对电路的简单控制。",
@@ -291,7 +291,7 @@ var appsData = [
         }, {
             "Id": "d147333a-2075-4d79-a953-4301be50ddd1",
             "AppName": "洋葱数学（IOS版）",
-            "AppLogo": "/AppShop/Upload/AppLogo/d996e87e-c3ed-4656-8e48-f797934575c7.png",
+            "AppLogo": "/AppShop/Upload/AppLogo/appImage3.png",
             "AppSize": 28272133,
             "AppUrl": "/AppShop/Upload/AppFiles/https://itunes.apple.com/cn/app/yang-cong-shu-xue/id990959871?l=zh\u0026ls=1\u0026mt=8",
             "AppDescription": "洋葱数学是一款为初中生提供数学视频教学内容的软件，通过这个平台学生们可以在课外也能得到数学的指导学习。每个视频都用有趣的视频语言来对教纲中的某个知识点进行详细的解释与阐述，并会在视频中穿插练习题。洋葱数学让你和低效又无趣的学习方式说再见，通过高效、有趣、启发模式来帮助学生们快速的掌握学习技巧。",
@@ -4218,7 +4218,7 @@ var appsData = [
         }, {
             "Id": "db59d90e-452b-4bb9-abf3-103d4ef54981",
             "AppName": "数学公式速查",
-            "AppLogo": "/AppShop/Upload/AppLogo/961ab21a-a6da-4bfd-9647-1dc67575eeb8.png",
+            "AppLogo": "/AppShop/Upload/AppLogo/appImage15.png",
             "AppSize": 9750900,
             "AppUrl": "/AppShop/Upload/AppFiles/f4523c7b-0b9d-4f79-a5bb-84bafed1c8c2.apk",
             "AppDescription": "这是一款简单,易用的中学数学公式速查软件。\n主要功能如下:\n1,输入公式的部分名称即迅速查询到公式的说明；\n2,可以收藏常用的公式；\n3,可以把公式复制,粘贴到其它地方；\n4,实现了中学物理各种计量单位之间的换算。",
@@ -4234,7 +4234,7 @@ var appsData = [
         }, {
             "Id": "a887991c-adf5-4928-abee-6b605786b0dc",
             "AppName": "同步学口语",
-            "AppLogo": "/AppShop/Upload/AppLogo/5d15dce8-bbd1-4992-8bd1-b5b815d364cc.png",
+            "AppLogo": "/AppShop/Upload/AppLogo/appImage16.png",
             "AppSize": 15523492,
             "AppUrl": "/AppShop/Upload/AppFiles/3495ad8e-50f0-4a21-90dd-9da218cc304d.zip",
             "AppDescription": "同步口语练习",

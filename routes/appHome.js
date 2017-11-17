@@ -6,6 +6,11 @@ var router = express.Router();
 var http = require('http');
 var download = require('./downloadResources')();
 
+let appIds = ["cc38dd51-8207-491d-a97f-aea2d161bf48", "9771981c-36ff-4f97-ac73-0d52e59b1f85", "4d60eef3-710b-4331-b1ba-a0fa0dbe661b", "0eaef522-7314-4ac2-88f8-08ffe41ddecf", "22ce4d2f-55ec-4d79-8a7d-897141820e63", "1e257c39-849e-45ed-9e6a-8f012ccf2460", "39e22d4b-4a31-4a8b-a080-c600bbb5f202", "f5039681-8d59-434f-bdcf-d6e3e0ea117c",
+                "cc38dd51-8207-491d-a97f-aea2d161bf48", "9771981c-36ff-4f97-ac73-0d52e59b1f85", "4d60eef3-710b-4331-b1ba-a0fa0dbe661b", "0eaef522-7314-4ac2-88f8-08ffe41ddecf", "22ce4d2f-55ec-4d79-8a7d-897141820e63", "1e257c39-849e-45ed-9e6a-8f012ccf2460", "39e22d4b-4a31-4a8b-a080-c600bbb5f202", "f5039681-8d59-434f-bdcf-d6e3e0ea117c",
+                "cc38dd51-8207-491d-a97f-aea2d161bf48", "9771981c-36ff-4f97-ac73-0d52e59b1f85"
+            ];
+
 router.get('/', function (req, res, next) {
     res.redirect('/AppShop/AppHome/Index');
 });
@@ -19,20 +24,20 @@ router.post('/SearchApp', function (req, res, next) {
 });
 
 router.get('/Recommend', function (req, res, next) {
-    res.render('shop-node-server.html', {relativePath: 'Recom', test: 'abcd'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Recom', test: 'abcd', items: appIds});
 });
 
 router.get('/Index', function (req, res, next) {
-    res.render('shop-node-server.html', {relativePath: 'Index', test: 'abcd'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Index', test: 'abcd', items: appIds});
 });
 
 router.get('/DownHistory', function (req, res, next) {
-    res.render('shop-node-server.html', {relativePath: 'Down', test: 'abcd'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Down', test: 'abcd', items: appIds});
 });
 
 router.get('/AppDetail', function (req, res, next) {
     //console.log(req.path);
-    res.render('shop-node-server.html', {relativePath: 'Detail'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Detail', items: appIds});
 });
 
 router.get('/RecommendApp?*', function (req, res, next) {

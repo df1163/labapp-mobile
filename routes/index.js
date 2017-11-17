@@ -6,6 +6,10 @@ router.get('/', function (req, res, next) {
     res.render('indexPage.html');
 });
 
+router.get('/assets/*', function (req, res, next) {
+    res.render('error.html');
+});
+
 router.get('/AppShop', function (req, res, next) {
     res.redirect('/AppShop/AppHome/Index');
 });
