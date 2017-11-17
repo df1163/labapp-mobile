@@ -1,0 +1,15 @@
+#!/bin/bash
+
+j=1
+for i in $(ls *.png | awk -F "-" 'NF>3{print $0}')
+do
+echo $i,$j
+#j=$(($j+1))
+#$j=$[$j+1]
+#((j++))
+#j=`expr $j + 1`
+#mv $i "appImage$j.png"
+#j=`expr $j + 1`
+done
+
+echo "$j"

@@ -1,0 +1,15 @@
+page-shop {
+  .list-header-wp, .list-header-md, .list-header-ios {
+    background-color: $background-color;
+  }
+
+  ion-list-header *{
+    color: $left-dark-blue;
+    font-size: 2rem;
+  }
+
+  ion-card {
+    margin: 10px 0 10px !important;
+    width: 100% !important;
+  }
+}

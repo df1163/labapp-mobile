@@ -1,0 +1,104 @@
+page-appDetail {
+  overflow: scroll;
+  margin: 40px 0 0;
+  bottom: 0px;
+  background-color: $background-grey;
+  ion-icon {
+    color: $button-blue;
+  }
+  ion-item {
+    margin-bottom: 10px !important;
+  }
+  div.scroll-content {
+    margin-bottom: 40px;
+  }
+  img {
+    margin: 0 auto 20px;
+  }
+  h2 {
+    font-weight: bold !important;
+    line-height: 2;
+    text-align: center;
+  }
+  p {
+    font-size: 12px !important;
+  }
+  #headerItem {
+    p {
+      color: rgb(153, 153, 153) !important;
+      line-height: 2;
+      text-align: center;
+    }
+  }
+  #bodyItem {
+    padding-bottom: 20px;
+    p {
+      width: 100%;
+      color: black;
+      white-space: normal;
+      text-align: left;
+      line-height: 1.6;
+    }
+  }
+  #recommendBox {
+    margin: 20px 0 20px;
+    height: 140px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    min-width: 100%;
+    white-space: nowrap;
+    .tile {
+      display: inline-block;
+      width: 60px;
+      margin: 0 0 0 24px;
+    }
+    .tile:first-child {
+       margin: 0;
+    }
+    .cell-icon {
+      height: 60px;
+      width: 60px;
+      //background: red url("../assets/imgs/appImage0.jpg") no-repeat;
+      //background-size: cover;
+      border-radius: 10px;
+    }
+    .cell-button {
+      margin: 0 auto;
+      background-color: rgb(63, 152, 237);
+      border: 0px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #ffffff;
+      height: 3rem;
+      width: 6rem;
+    }
+    .cell-title {
+      margin: 10px 5px 10px;
+      font-size: 1rem;
+      max-width: 60px;
+      height: 30px;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .blue-button {
+    background-color: $button-blue;
+  }
+  .yellow-button {
+    background-color: #63be0c;
+  }
+  button {
+    margin: 20px auto;
+    height: 45px;
+    width: 145px;
+    border-radius: 22px;
+    font-size: 20px;
+    color: $white;
+    display: block;
+  }
+  .item-inner {
+    border: 0 !important;
+  }
+}
