@@ -3,7 +3,7 @@ import {IonicPage, LoadingController} from 'ionic-angular';
 
 import { Hero } from '../../app/hero';
 import { HeroService } from '../../app/hero.service';
-@IonicPage()
+
 @Component({
     selector: 'page-geo',
     templateUrl: 'geo.html'

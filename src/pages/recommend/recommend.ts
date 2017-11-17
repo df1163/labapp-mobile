@@ -5,7 +5,6 @@ import { appsService } from '../../app/apps.service';
 import { appDetailPage } from '../detail/appDetail';
 // import { Element } from '@angular/compiler';
 
-@IonicPage()
 @Component({
     selector: 'page-recommend',
     templateUrl: 'recommend.html',

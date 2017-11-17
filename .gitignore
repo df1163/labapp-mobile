@@ -12,9 +12,11 @@ log.txt
 .vscode/
 npm-debug.log*
 
-www/assets/fonts/*
-www/assets/imgs/*
-videos/*
+www/assets/fonts/
+www/assets/imgs/
+www/assets/icon/
+www/build/
+*.mp4
 page*/*
 res/
 .idea/

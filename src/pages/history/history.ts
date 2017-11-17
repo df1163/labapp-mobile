@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
 import { appsService } from '../../app/apps.service';
-@IonicPage()
+
 @Component({
   selector: 'page-history',
   templateUrl: 'history.html',

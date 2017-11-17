@@ -4,7 +4,11 @@ import { NavController, Events, ActionSheetController, IonicPage } from 'ionic-a
 import { fadeIn } from '../../app/animations/fadeIn';
 import { slideUp } from '../../app/animations/slideUp';
 
-@IonicPage()
+import { RecommendPage } from '../recommend/recommend';
+import { ShopIntro } from '../shopIntro/shopIntro';
+import { HistoryPage } from '../history/history';
+import { GeoPage } from '../geo/geo';
+
 @Component({
     selector: 'page-tabs',
     templateUrl: 'tabs.html',
@@ -21,10 +25,10 @@ export class TabsPage {
         user2: 'ionic'
     };
 
-    tab1Root = 'RecommendPage';
-    tab2Root = 'ShopIntro';
-    tab3Root = 'HistoryPage';
-    tab4Root = 'GeoPage';
+    tab1Root = RecommendPage;
+    tab2Root = ShopIntro;
+    tab3Root = HistoryPage;
+    tab4Root = GeoPage;
 
     constructor(private navCtrl:NavController, private events: Events, private actCtrl: ActionSheetController) {
         this.searchPanel = false;
