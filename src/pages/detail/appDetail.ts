@@ -2,9 +2,9 @@
  * Created by alex on 11/11/2017.
  */
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, Events} from 'ionic-angular';
+import {NavController, NavParams, AlertController, Events, IonicPage} from 'ionic-angular';
 import { appsService } from '../../app/apps.service';
-
+@IonicPage()
 @Component({
     selector: 'page-appDetail',
     templateUrl: 'appDetail.html',

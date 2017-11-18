@@ -4,7 +4,7 @@ import { NavController, Events, ActionSheetController, IonicPage } from 'ionic-a
 import { fadeIn } from '../../app/animations/fadeIn';
 import { slideUp } from '../../app/animations/slideUp';
 
-@IonicPage()
+@IonicPage({TabsPage:'TabsPage'})
 @Component({
     selector: 'page-tabs',
     templateUrl: 'tabs.html',

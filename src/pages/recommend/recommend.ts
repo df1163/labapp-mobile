@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController, LoadingController, Events, Content, NavParams, IonicPage } from 'ionic-angular';
 
 import { appsService } from '../../app/apps.service';
@@ -41,7 +41,7 @@ export class RecommendPage {
     }
 
     pushTestPage(appTitle: string, appImage: string) {
-        this.navCtrl.push(appDetailPage, {
+        this.navCtrl.push('appDetailPage', {
             appTitle: appTitle,
             appImage: appImage
         });
