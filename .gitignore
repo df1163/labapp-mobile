@@ -12,6 +12,9 @@ log.txt
 .vscode/
 npm-debug.log*
 
+www/assets/fonts/*
+www/assets/imgs/*
+*.mp4
 page*/*
 res/
 .idea/
@@ -30,7 +33,9 @@ plugins/
 plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
+*.map
 
+package-lock.json
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

@@ -6,22 +6,33 @@ import {MyApp} from './app.component';
 
 import {GeoPage} from '../pages/geo/geo';
 import {HistoryPage} from '../pages/history/history';
-import {ShopPage} from '../pages/shop/shop';
+import {ShopIntro} from '../pages/shopIntro/shopIntro';
 import {RecommendPage} from '../pages/recommend/recommend';
 import {TabsPage} from '../pages/tabs/tabs';
+
+import {appDetailPage} from '../pages/detail/appDetail';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {HeroService} from './hero.service';
 
+import {FloatButtonSet} from './components/floatbuttonset/floatbuttonset';
+
+import {filterInutSearchPipe} from './pipes/filterInutSearchPipe';
+import {safeStylePipe} from './pipes/safeStylePipe';
+
 @NgModule({
     declarations: [
         MyApp,
         GeoPage,
-        ShopPage,
+        ShopIntro,
         HistoryPage,
         RecommendPage,
-        TabsPage
+        TabsPage,
+        appDetailPage,
+        FloatButtonSet,
+        filterInutSearchPipe,
+        safeStylePipe
     ],
     imports: [
         BrowserModule,
@@ -32,10 +43,11 @@ import {HeroService} from './hero.service';
     entryComponents: [
         MyApp,
         GeoPage,
-        ShopPage,
+        ShopIntro,
         HistoryPage,
         RecommendPage,
-        TabsPage
+        TabsPage,
+        appDetailPage,
     ],
     providers: [
         StatusBar,

@@ -1,55 +1,54 @@
 page-tabs {
-
-  $list-ios-header-background-color : #1B1B20;
-  $white: #ffffff;
   text-align: center;
 
-  .toolbar-title{
-    color: $white !important;
-  }
-
   ion-header {
-    .item-ios, .item-md, .item-wp {
-      background-color: transparent !important;
-    }
-
-    .item-ios *, .item-md * , .item-wp *{
-      color: $white !important;
-      line-height: 1.5;
-    }
-
-    h2{
-      font-size: 16px !important;
-      font-weight: bold !important;
-    }
-
-    p {
-      line-height: 1 !important;
-      font-size: 12px !important;
-      font-weight: lighten;
-      text-indent: 2px;
-    }
-    .searchbar-ios .searchbar-input {
-      padding-left: calc(25% - 45px) !important;
-      position: relative;
-      top: 3px;
-      background-color: white !important;
-      height: auto;
-      line-height: 3rem;
-      font-size: 16px;
-    }
-
     ion-title {
       background-color: $list-ios-header-background-color;
       height: 40px;
       font-size: 20px;
       line-height: 2;
     }
+    .toolbar-title {
+      color: $white !important;
+    }
+  }
 
-    ion-navbar, .col {
-      height: 60px;
+  ion-toolbar {
+    transform: translate3d(0,40px,0);
+    height: 60px;
+
+    #avatarPanel {
+      background-color: transparent !important;
+      * {
+        color: $white !important;
+        line-height: 1.5;
+      }
+      h2 {
+        font-size: 16px !important;
+        font-weight: bold !important;
+      }
+
+      p {
+        line-height: 1 !important;
+        font-size: 12px !important;
+        font-weight: lighten;
+        text-indent: 2px;
+      }
     }
 
+    .searchbar-ios .searchbar-input {
+      padding-left: calc(25% - 45px) !important;
+      position: relative;
+      top: 3px;
+      background-color: $white !important;
+      height: auto;
+      line-height: 3rem;
+      font-size: 16px;
+    }
+
+    .col {
+      height: 60px;
+    }
 
     a.tab-button {
       font-size: 14px;
@@ -68,11 +67,23 @@ page-tabs {
     div.item-inner {
       border: 0 !important;
     }
-  }
+    .toolbar-background {
+      background-image: $panel-gradient !important;
+    }
 
+    div.searchbar-search-icon {
+      display: none;
+    }
 
-  .toolbar-background {
-    background-image: linear-gradient(to right, #508DFF 0%, #3BB8FE 100%) !important;
+    button.searchbar-clear-icon {
+      right: 2.5rem !important;
+    }
+
+    #search .searchbar-input {
+      border-radius: 2rem;
+      padding: 0.6rem 2.5rem;
+      margin: 0 auto;
+    }
   }
 
   div.tabbar {
@@ -80,68 +91,15 @@ page-tabs {
     height: 4rem;
   }
 
-  div.searchbar-search-icon {
-    display: none;
-  }
-
-  div.tab-highlight {
-    ////width: 20px !important;
-    //height: 4px !important;
-    //background: black !important;
-  }
-
-  button.searchbar-clear-icon {
-    right: 25px !important;
-  }
-
-  #search .searchbar-input {
-    border-radius: 21px;
-    padding: 6px 25px;
-    margin: 0 auto;
-  }
-
-  ion-tab {
-    font-size: 0.875rem;
-    color: rgba(102, 102, 102, 1);
-  }
-
   .list-ios, .list-md, .list-wp {
     margin: 110px 0 0;
   }
-
   ion-content {
-    background-color: #F0F0F2 !important;
+    background-color: $background-grey !important;
   }
 
-  #appList {
-    h2{
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 2;
-    }
-    p{
-      font-size: 10px ;
-      line-height: 2 ;
-    }
-    .item-inner {
-      border-bottom: 0;
-    }
-    ion-item {
-      border-bottom: 1px solid #dedede;
-      height: 100px;
-    }
-    button[item-right] {
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-      background-color: rgb(63,152,237);
-      border: 0px;
-      border-radius: 0.3125rem;
-      font-size: 0.875rem;
-      color: $white;
-      height: 30px;
-      width: 60px;
-      font-size: 14px;
-    }
+  video {
+    width: 100%;
   }
+
 }

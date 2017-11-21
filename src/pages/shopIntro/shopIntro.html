@@ -1,0 +1,22 @@
+<ion-content>
+    <ion-list>
+        <ion-card>
+            <ion-card-header>使用说明</ion-card-header>
+            <ion-item>
+                <video #tutorial src="../assets/videos/testV.mp4" controls="controls">
+                    您的浏览器不支持 video 标签
+                </video>
+            </ion-item>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>学生作品</ion-card-header>
+            <ion-item>
+                <video #exhib src="../assets/videos/testV2.mp4" controls="controls">
+                    您的浏览器不支持 video 标签
+                </video>
+            </ion-item>
+        </ion-card>
+        <ion-card><button ion-button (click)="share($event)"><ion-icon name="share"></ion-icon></button></ion-card>
+    </ion-list>
+
+</ion-content>

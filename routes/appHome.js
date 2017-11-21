@@ -19,20 +19,20 @@ router.post('/SearchApp', function (req, res, next) {
 });
 
 router.get('/Recommend', function (req, res, next) {
-    res.render('shop-node-server.html', {relativePath: 'Recom', test: 'abcd'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Recom', test: 'abcd'});
 });
 
 router.get('/Index', function (req, res, next) {
-    res.render('shop-node-server.html', {relativePath: 'Index', test: 'abcd'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Index', test: 'abcd'});
 });
 
 router.get('/DownHistory', function (req, res, next) {
-    res.render('shop-node-server.html', {relativePath: 'Down', test: 'abcd'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Down', test: 'abcd'});
 });
 
 router.get('/AppDetail', function (req, res, next) {
     //console.log(req.path);
-    res.render('shop-node-server.html', {relativePath: 'Detail'});
+    res.render('shopIntro-node-server.html', {relativePath: 'Detail'});
 });
 
 router.get('/RecommendApp?*', function (req, res, next) {

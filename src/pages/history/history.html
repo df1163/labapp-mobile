@@ -1,9 +1,16 @@
 <ion-content>
     <ion-list>
-        <ion-list-header>Follow us on Twitter</ion-list-header>
-        <ion-item>
-            <ion-icon name="ionic" item-start></ion-icon>
-            @ionicframework
+        <ion-list-header>
+            下载历史
+            <ion-icon name="ionic"></ion-icon>
+        </ion-list-header>
+        <ion-item *ngFor="let app of apps | inputSearch : 'title' : value">
+            <ion-avatar item-left="">
+                <img src={{app.image}}>
+            </ion-avatar>
+            {{app.title}}
+            <ion-badge item-end="">{{app.downTotal}}人下载</ion-badge>
+            <ion-icon name="ionic" item-end></ion-icon>
         </ion-item>
     </ion-list>
 </ion-content>

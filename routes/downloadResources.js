@@ -3,7 +3,7 @@
  */
 var fs = require("fs"), request = require('request');
 
-var cookie_val = 'FedAuth=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U2VjdXJpdHlDb250ZXh0VG9rZW4gcDE6SWQ9Il8yYjZlZTc3ZS0zMjQwLTQ4ZDgtOTJhYi05MTNhZjdhN2ZhNjQtNjJCREUxNTU0RjYyQjk5NzMzMEU1NzdGRDg2QUM4RkEiIHhtbG5zOnAxPSJodHRwOi8vZG9jcy5vYXNpcy1vcGVuLm9yZy93c3MvMjAwNC8wMS9vYXNpcy0yMDA0MDEtd3NzLXdzc2VjdXJpdHktdXRpbGl0eS0xLjAueHNkIiB4bWxucz0iaHR0cDovL2RvY3Mub2FzaXMtb3Blbi5vcmcvd3Mtc3gvd3Mtc2VjdXJlY29udmVyc2F0aW9uLzIwMDUxMiI+PElkZW50aWZpZXI+dXJuOnV1aWQ6ZTBmMmE2MTEtYWU4ZC00MzU2LWJhOTYtYmM1NGVmZDMyNmNhPC9JZGVudGlmaWVyPjxDb29raWUgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwNi8wNS9zZWN1cml0eSI+R2NybEZnaVNwZHlIVWNQL1VsaXNvNkludkgyNnd4NDdoUzZzeUMwWE9XbmlUKzdKa2ZZcWxnZm1ybHdWWksySXVpMkVYamExZCt4SU1DSElkdG9sTG1yS3MvdHgrYlBFazdvbEE3Z3NEbGFWREUvbnI4MzEvcDVWVXAxMDZ3K0IvaTFkWjZZZjF6VFQwRzkreGlZejl4V0VUNVdhbllZQlFpd3FpNFhmSkdpSnh2NW1aUGd5QXRLbkY3QVFzSUM4ZEN6a1lyMXowc0pud09pWkdIaDRpMTc2ajdyblBoWHJBY0d3d0YwMlRaQnZVb3JlSVNSSWtUenNoUkVPTi9xREV4Z2ZpSXBNWENXK2RXYnh2Z0FPWjNXMEYvZWFOUWpRTjZ3ZzVhR3VxNkQ5UkxUOUtGZGpyZUY3K0s5WmpGRzJLcWdjVHNINXVQcWUzZlliQU40R1MxbzdVWVpXVC83bmh2YnZJRXVwd25Ka2RXZmlPMWFLbmtFM1dDQ1JuU1E1cTdxLzVFZ0hxaGdIM25ob2FlQlBSTXRiMGtDLzFhcjViUXZRQWVkV3IwY2VwRmUvNlo0YkFjb1dGTU53cUdKRjhQN215WUQzcUFBTjRmWEpueGUzcmRLTWZ0dDhJS2t5d1VETUFULzlwOFVTUGxHSU9ST21jK0cxc21jQU1JU3dCNHBldjNDRmI3bFQ3ZWFmSXovRkx4ekdZb3kwUHZYQ3M1WGZybmZ6R1FlMVdQblhwSFBoL1NxZWJPRUw2WDJiTnlLMUwxK24zckdpMDBEUGJJWVZob3BtYUlKUE5MUVhSam5ZMmJvbE5XRVJQUWRVY0ppa2xFUGx1ZTR5K1hxL2lnOFdPT2xRQmlWTjFBdDYwYmRuTjRzekRTUXM1OVpMMFhHakpFd3IzalBLVWRCYUZnREtWZGpSZFVwN3Y2c3JrNklST0hqSmlwM09ZTCtjM1JtTWRFYXI1QW41a25vOHFXUWlnb3dXbkowbExmYUZLNDIvRW9OQ2UyVEpFRlBMTkNBOU1neTJIQjE0V2p0OUZHRkhmR3NzYlAvQXVQTzlFU3U0eE5GZkRKOXkyVlFITHhWQmFKMVJXVVcwSXJlR2JTQ2tGMFlnVi9ManB0NEZLV2tiNktMNWZPMkxvaDJjYjRwcy91emZVc2JFdDhZQkl4QWp1a1laQXdiZ28vb0FkZHZkWk1Zbml5OFAweXVEalNEMlIwZGdXS1JLWEYySS9NZ2RRU0JHbTlvMXd0VE1HY1RSdlg5RXdXNHRMM1FjM3BvTHV4cHlHQStxSWZVYXVZU1phdXJyOXpoM1JBVVFQeUtOMU95MFZOalFGTy9NRk42cjNSRzBHZHhvTWNRYlJEQ3hHRFZ4Mnk0NlNpMUhwTm43SUpFMWc1dkJoNG9HZ0lT; FedAuth1=b296Mm5nVGxNbTVIa2wwZGlWd0E2VkV3TEJpS3dVd0crZFo3enRyalJDWDYxMlZsUzQ1MVJIb0ZUWEZFYzh1Zlh0VThjNXRwTTY1WEN3ZTNOeWRHb0xMYU1Wb2xIdGpKVjY2YlZKTHRwZjd4a01CaTdxb0RYWEgwYWpUeGxlL0g1dTNFSDdrZ0FzeHdqU05FbjhJK0VqWi9PeWtaR3d4anVyc0RnQk5Ia3dpZlRiVXZBdUM4Y3l6VHg1aVdYL1c2QXJ3ZHMrZC85UytYMTM4eUxVbkVkNnRvYU55a3F1MkpjSVpBQ1RyWVBVdzNQdGVEWTlmbm9pSW0velhsaW9ZcDEvdDdtcFBUWkVwWGdOWmhQYUJlUGxXVzRiaHNYSUExbU4xSWVGazlWUEdSTDBER1QwQ29rQlhYS0lndldmUHZmY2Z6Z1VVemdWaE84ZTVUUzBSblRtdmtrdEUxUUZIY0doZy9vcEl0SmFON3hFZHVwWXhuNmx4NTNJZjBMVTBLODlxaDduSzFBMVN6aGpxZUJTUnlCcS9IN2tzMGQ4NEJybmJDVmtQb0hVL2FQZ1N3ZkRua3prTWVoaTd0Ujd1L2tOdU4vRnhYMnVqeGN0SUNTRlF2cHJTWnJFK0VvS3BqWFdCNUNJTmVrc3FOcm56ZkxCcFZGSU1yN3hBQUJEb1d2dVM5Y3dBUUVscjVDRWFadDNINkE2V2lJSVNYb3hjdE8vczVMZXdqSnpEb1h3ejh4Z3JZSGpaSVJJNXQva3VCMlRZVWFKellWM0FZSjcxdTRFZ3JNRVNOaG1rV2FINU9SdzJReUJSdUp2c3oyak9JMkRxT3pENDBpYS9keGZmR2QrZmh1ZXhhQmF3RkZ2dngzWU4wZE5zY2hKTGhTaEFnNkF6anoyVVFPREdGakllbldyK0M0UlpjeFgwSnJocDVlTSs0WGVjYjRvZ1ZRPC9Db29raWU+PC9TZWN1cml0eUNvbnRleHRUb2tlbj4=; Hm_lvt_d39e67062f2c834c707b85a43e564cd4=1510141179,1510141187,1510150214,1510152116; Hm_lpvt_d39e67062f2c834c707b85a43e564cd4=1510152116';
+var cookie_val = 'FedAuth=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U2VjdXJpdHlDb250ZXh0VG9rZW4gcDE6SWQ9Il82OTBmYjkwMy05ZGQwLTQ0NWQtYWI4NS03NTk2ZjJmNjU1ZjMtQjVFQ0RFNjNDMDlCNkY4NUFENTkxNEZENkRBMEM1RTMiIHhtbG5zOnAxPSJodHRwOi8vZG9jcy5vYXNpcy1vcGVuLm9yZy93c3MvMjAwNC8wMS9vYXNpcy0yMDA0MDEtd3NzLXdzc2VjdXJpdHktdXRpbGl0eS0xLjAueHNkIiB4bWxucz0iaHR0cDovL2RvY3Mub2FzaXMtb3Blbi5vcmcvd3Mtc3gvd3Mtc2VjdXJlY29udmVyc2F0aW9uLzIwMDUxMiI+PElkZW50aWZpZXI+dXJuOnV1aWQ6OTc2ZTg3OTctZDEwYi00NjJjLWIwNGQtOTAwZmEzODRjNGM5PC9JZGVudGlmaWVyPjxDb29raWUgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwNi8wNS9zZWN1cml0eSI+WDY0YkZqSWc5dENOQ0d5TmNSK3YzNWRKRDBNUDQyNGlsM1VjWUhYd1MwS0gzcGMxci9aUll2TkJtTVNGZGxRZnNtbGE2dUVGUVFITThPaGliL2pucEZnTGVSb3M0T0tDcWdocDJHSC9LMVllaWJ2Y2RPck1ERzMwZWpLeHhwRm54UzlLVlBoakRRVlZtYWhqVzNGdENWL1pZSDZiT2xoeXYwK0Z2b1hoU3hNanh3YXFsdENqNFFsRTh4Q1hLaTIyd0VFZEJsWCt4RXVKeWJ4eGhNMEs5RDVCWkxzR2czZk9OZ05GNzFkZThxTTJacDlQQm1pWlEyVTZPdkJCc3lGN1ArZGthS3NLOHRTbkdGeWJSdXNZdHZOaUlhN085S0l3UE9DR3VHNnYvaTNpQ0JiT2wvUVpOTnZxdGdOY3c5V3pyM2NzMnpQMStodENhWXc3TXYxbEM3bW1kQnVSY0xuSVlVSXdxL25KQ0RNMDdjTG13ekhaNXhQVUJRYnNHYzZ2aDlSRmF4dldsU3J0WUF1RTRkK0JDWlRkemhzYzVlMCs4VkVQQUpQUWFXdGFzODdCNyt6SEdBbjRFejRhWkJ1a3ZvdjFpOWpCNGx1YllySFhTOEpybDl0NkY0WnhjR3gwZGQ4SnVoY2pPK2NkbHNlY2NJcEV1YkN4Y28xSkNsSTBucnVMVjNTTXZydlJiWmdaSlVnRVR3NC9OVmNGcy9zaXB4clNKTHZvUXBqOHNIeDY1ZEhhT2diVUovWmRzUXJiMVB1QXA0bHhHU1pobDhQZGg1bmZqNllYOXZiTUJ6bFY2VXdva2ZvYlkzck9wRzAveVBtK1pRL0xwYzV0b1N2K3huUEdXeTQrSG5EcGZBYUUra2M5L28zZGtqanhCSGhNckJ4dmZMSkc5N0hYdnVDZ05tSlFvQWh6Tk9aZFdtYkc5Mm1pTE9INERqbllVaHBlY0Z5WlNXR2Yyc1hvRVkzSzUzL1A3TVpYYUZ3NmFicVhPSDVocjNIYXo5QitkbE5JYklyaDNMRXhMTjF6T2dGaTUvYmwzdVo3UkhobFkvRTJDQUZxNXpXMXZpSjBvN3RTYWlrbDlyNTcxcDYrYUROQThjL0dqSVQvMm9iS2VXcVZvM00zejVEUUxqU1RjVmswQ3Rxa1VJMHltcW5NNUFFRnF0TVVGZzJvaEk3QmppTU5makd1ODZzVzlicHJlNk90anRaSzFZWnpvenUyUlVLYjl5eGd1aVUybllBSlNTTE5Ya0JOOTRnTUVCNjBXMjRtcS9SaElRbWdmVE0vTzRFdDU2bTBybk5yTXFKWDlpekR3R29DNUkxL2ZLbHV0TVZhZmh0bDRBellBYmRZZ1dhekVMRTlISWhyOUk1TFJDT2lRVVF1QVB2UzdwL1NKT1NWVnhN; FedAuth1=RTNZdHo0aHBqbis3U2VRRUhyRC9nUlVtcllxWUlBK2d5TkJxV3RNbUFzR3Q5Ky9CR1RscTZ5d2F5TXpRaG1pL2xzN3g5OUlEeUMxZ3JIS2JhVGc2WXhVeGxLZzFMZ3ZSYUtEK01RNFNaWTZmdTNycFVBODJ0QkZTRUhheXF6aVpMUVlXeDAySVcxRFUwcXpDamx3cUR0ak9QOGpadSt1Q3pQNERkazNuUWY2ZzdGNmJ4ODYweHE4NWpVdlJqVUQ5L3FuRTBMUUdydWlRczRENlQwaWZJc0Z4RkJ6SlNLUGM5UXJ1czdRRW5nVW5qZjNVV3owVCtyRHpsOU16cncyT1FhZFVBSDllRUpacGFlMzVib0d5cy9Lb1B1a1ROWi9kV2MxUU5kbk5oR1Z1ZmNTdi84b3NIMVlYY1p3U3RMb3RZMFE1dGhRRUgzRzMraXpJa284RTZ4WXZaT1dTUmtsR0ZVVmoxUHRiRW1UTlpIaUoxVUt0c2htNzlMM3NlVXNjeGdnM3ZrNms3N3V6YzVHbnk3U2t2M0JaVThqSFBEQWozMElkbVo3WkdSOEgzeXBUcXEzYUZYc2RjRXdOekFtMlVrR2dFOGV6QUVBa0YyTXNrWi96RndUbmVuVTZSYVg5Y3hhS1ZXaTYwamp5am80TzJrcG1SNVluVWpLaGpaYWlxTC9GcmdPUHV2LzFLME1MTTA2b1dpa1RtOHowbGVscm5SbmM3Q0haUzMvNjVXTmRpbEEwRW9HUGI2VDFiZU5KWWNTbVdPRVhJeDB1N0JMeWJZb1d4aDBoMFpmSUxJSXNHQi93ZnR1RDZHMG9Bc2xkMXE1OTZ0YkNLVVJtUmRMUFk0cEpySWMvV3FqdFNuclRqYTVmQk8vRDB6TFl3dlpqeVowdUVIbUdxTzEvSlJyOUNDd0hCZDBOTjkxNHo5TER6QSs4UmZGNlpwZ1ZzPC9Db29raWU+PC9TZWN1cml0eUNvbnRleHRUb2tlbj4=; Hm_lvt_d39e67062f2c834c707b85a43e564cd4=1510380578,1510381040,1510385785,1510721740; Hm_lpvt_d39e67062f2c834c707b85a43e564cd4=1510723539';
 
 var headers = {
     'cookie': cookie_val,
@@ -23,17 +23,119 @@ var headers = {
 console.time('Total download costed');
 
 var pagesNum = [];
-for (let i = 0; i < 15; i++) {
-    pagesNum.push(i);
-    try {
-        fs.statSync('page' + i).isDirectory();
-    } catch (e) {
-        fs.mkdir('page' + i);
-    }
+
+Array.from({length: 15},(v,i) => i).forEach(index => {
+    pagesNum.push(index);
+try {
+    fs.statSync('page' + index).isDirectory();
+} catch (e) {
+    fs.mkdir('page' + index);
+}
+})
+//
+// for (let i = 0; i < 15; i++) {
+//     pagesNum.push(i);
+//     try {
+//         fs.statSync('page' + i).isDirectory();
+//     } catch (e) {
+//         fs.mkdir('page' + i);
+//     }
+// }
+
+// async function getPromises(){
+//     let promises = pagesNum.map(num => 'http://yun.pte.sh.cn/AppShop/AppHome/RecommendApp?pageIndex=' + num + '&pageSize=20&order=UpTime');
+//     let results = [];
+//     for(let promise of promises){
+//         request({
+//             url: promise,
+//             headers: headers
+//         }, function (err, res, body) {
+//             if(err) throw(err);
+//             let data = JSON.parse(body).data;
+//             results.push(await data);
+//         })
+//     }
+// }
+
+function timeout(ms) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(resolve, ms);
+    });
+}
+
+async function asyncPrint(value, ms) {
+    await timeout(ms);
+    console.log(value);
+};
+
+let getFoo = () => new Promise((resolve, reject) => resolve('FOO'));
+
+
+let getBar = () => new Promise((resolve, reject) => resolve('BAR'));
+
+async function getPages() {
+    // 0.05-0.07ms
+    //console.time('getPages runs');
+    // await Promise.all([
+    //     asyncPrint(123, 5000),
+    //     asyncPrint(234, 3000),
+    //     asyncPrint(345, 6000),
+    //
+    // ]);
+
+    // 20-30ms
+    // await Promise.all([getFoo(), getBar()]);
+    // 20ms total
+    // await getFoo();
+    // await getBar();
+    // 0.15ms
+    // getFoo();getBar();
+
+    //console.timeEnd('getPages runs');
+
+    console.log('================================================================');
+    console.log(`Current directory: ${process.cwd()}, current CPU usage: ${JSON.stringify(process.cpuUsage())}`);
+
+    // process.emitWarning('Something happened!', {
+    //     code: 'MY_WARNING',
+    //     detail: 'This is some additional information'
+    // });
+
+    process.on('warning', (warning) => {
+        console.log('===========================Warning Starts=====================================');
+    console.warn(warning.name);    // 'Warning'
+    console.warn(warning.message); // 'Something happened!'
+    console.warn(warning.code);    // 'MY_WARNING'
+    console.warn(warning.stack);   // Stack trace
+    console.warn(warning.detail);  // 'This is some additional information'
+    console.log('===========================Warning Ends=====================================');
+});
+
+    const myWarning = new Error('Something happened!');
+    // Use the Error name property to specify the type name
+    myWarning.name = 'CustomWarning';
+    myWarning.code = 'WARN001';
+    // process.emitWarning(myWarning);
+
+
+    console.log(`Current gid: ${process.getegid()}`);
+    console.log(`Current uid: ${process.geteuid()}`);
+    console.log(`Current pid: ${process.pid}`);
+
 }
 
 function downloadCall() {
-    Promise.all(pagesNum.map(function (num) {
+    Promise.all(pagesNum.map(async function (num) {
+        // request({
+        //     url: 'http://yun.pte.sh.cn/AppShop/AppHome/RecommendApp?pageIndex=' + num + '&pageSize=20&order=UpTime',
+        //     headers: headers
+        // }, function (err, res, body) {
+        //     if (err) throw(err);
+        //     else {
+        //         return JSON.parse(body).data;
+        //     }
+        // });
+
         return new Promise(function (resolve, reject) {
             request({
                 url: 'http://yun.pte.sh.cn/AppShop/AppHome/RecommendApp?pageIndex=' + num + '&pageSize=20&order=UpTime',
@@ -45,7 +147,9 @@ function downloadCall() {
                 }
             });
         });
-    })).then(function (pages) {
+    }
+
+)).then(function (pages) {
         Promise.all(pages.map(function (page) {
             return new Promise(function (resolve, reject) {
                 Promise.all(page.map(function (app) {
@@ -100,8 +204,11 @@ function downloadCall() {
             console.timeEnd('Total download costed');
             console.log('All pages done!')
         }).catch(function (e) {
+            console.log('===========================');
+            console.log(e);
             console.timeEnd('Total download costed');
             console.log('Error in pages!');
+            console.log('===========================');
         });
     }).catch(function (reason) {
         console.timeEnd('Total download costed');
@@ -281,4 +388,4 @@ function downloadCall() {
 //     });
 // });
 
-module.exports = downloadCall;
+module.exports = getPages;

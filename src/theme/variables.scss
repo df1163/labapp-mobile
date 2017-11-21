@@ -86,3 +86,14 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+$background-grey: #F0F0F2;
+
+$list-ios-header-background-color : #1B1B20;
+$white: #ffffff;
+$button-blue: #0b99f4;
+$left-dark-blue: #508DFF;
+$right-light-blue: #3BB8FE;
+
+$panel-gradient: linear-gradient(to right, $left-dark-blue 0%, $right-light-blue 100%)

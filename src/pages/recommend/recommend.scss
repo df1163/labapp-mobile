@@ -1,3 +1,44 @@
 page-recommend {
+  ion-thumbnail img{
+    border-radius: 5px;
+    width: 70px !important;
+    height: 70px !important;
+  }
 
+  #appList {
+    h2 {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 2;
+    }
+    p {
+      font-size: 10px;
+      line-height: 2;
+    }
+    .item-inner {
+      border-bottom: 0;
+    }
+    ion-item {
+      border-bottom: 1px solid #dedede;
+      height: 100px;
+    }
+    button[item-right] {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background-color: rgb(63, 152, 237);
+      border: 0px;
+      border-radius: 0.3125rem;
+      font-size: 0.875rem;
+      color: $white;
+      height: 30px;
+      width: 60px;
+      font-size: 14px;
+    }
+    img {
+      border-radius: 5px;
+      width: 70px;
+      height: 70px;
+    }
+  }
 }
