@@ -22,47 +22,48 @@
 
 <div id="nullResult" class="hide">暂无搜索结果</div>
 
-<div id="resultList" data-toggle="true">
-    <div id="buttonset" class="hide">
-        <button id="filter"><i class="iconfont icon-filter"></i>筛选</button><!--
+<div id="buttonset" class="hide">
+    <button id="filter"><i class="iconfont icon-filter"></i>筛选</button><!--
 　　--><button id="sort"><i class="iconfont icon-navlist"></i>排序</button>
-    </div>
-    <div id="backdrop" class="hide">
-        <div id='filterCriteria' class="hide">
-            <div><span class="float-left cancel">取消</span><span class="cell-title">筛选</span><span id="filterSubmit"
-                                                                                                  class="float-right submit">完成</span>
+</div>
+<div id="backdrop" class="hide">
+    <div id='filterCriteria' class="hide">
+        <div><span class="float-left cancel">取消</span><span class="cell-title">筛选</span><span id="filterSubmit"
+                                                                                              class="float-right submit">完成</span>
+        </div>
+        <div>
+            <div class="cell-title text-left">学科</div>
+            <div id='class-criteria' class="button-container">
+                <button class="float-left" data-class="kindergarden">幼儿</button>
+                <button class="float-right" data-class="elementary">小学</button>
+                <div class="clear-float"></div>
+                <button class="float-left" data-class="junior">初中</button>
+                <button class="float-right" data-class="senior">高中</button>
+                <div class="clear-float"></div>
+                <button class="float-left" data-class="middle">初/高中</button>
+                <button class="float-right" data-class="k12">小学/初中/高中</button>
             </div>
-            <div>
-                <div class="cell-title text-left">学科</div>
-                <div id='class-criteria' class="button-container">
-                    <button class="float-left" data-class="kindergarden">幼儿</button>
-                    <button class="float-right" data-class="elementary">小学</button>
-                    <div class="clear-float"></div>
-                    <button class="float-left" data-class="junior">初中</button>
-                    <button class="float-right" data-class="senior">高中</button>
-                    <div class="clear-float"></div>
-                    <button class="float-left" data-class="middle">初/高中</button>
-                    <button class="float-right" data-class="k12">小学/初中/高中</button>
-                </div>
-                <div class="cell-title text-left">平台</div>
-                <div id='platform-criteria' class="button-container">
-                    <button class="float-left" data-platform="linux">Linux</button>
-                    <button class="float-right" data-platform="ios">iOS</button>
-                    <div class="clear-float"></div>
-                    <button class="float-left" data-platform="android">Android</button>
-                    <button class="float-right" data-platform="win">WinXP/Win7</button>
-                </div>
+            <div class="cell-title text-left">平台</div>
+            <div id='platform-criteria' class="button-container">
+                <button class="float-left" data-platform="linux">Linux</button>
+                <button class="float-right" data-platform="ios">iOS</button>
+                <div class="clear-float"></div>
+                <button class="float-left" data-platform="android">Android</button>
+                <button class="float-right" data-platform="win">WinXP/Win7</button>
             </div>
         </div>
-        <div id='sortCriteria' class="hide">
-            <div><span class="float-left cancel">取消</span><span class="cell-title">排序</span><span id="sortSubmit"
-                                                                                                  class="float-right submit">完成</span>
-            </div>
-            <div class="sort-option" data-sort="default"><span>默认</span></div>
-            <div class="sort-option" data-sort="latest"><span>最新</span></div>
-            <div class="sort-option" data-sort="popular"><span>最热</span></div>
-        </div>
     </div>
+    <div id='sortCriteria' class="hide">
+        <div><span class="float-left cancel">取消</span><span class="cell-title">排序</span><span id="sortSubmit"
+                                                                                              class="float-right submit">完成</span>
+        </div>
+        <div class="sort-option" data-sort="default"><span>默认</span></div>
+        <div class="sort-option" data-sort="latest"><span>最新</span></div>
+        <div class="sort-option" data-sort="popular"><span>最热</span></div>
+    </div>
+</div>
+
+<div id="resultList" data-toggle="true">
     <div class="cell" data-appId="cc38dd51-8207-491d-a97f-aea2d161bf48">
         <div class="cell-icon float-left" style="background: url('/img/appImage.jpg');background-size: cover"></div>
         <div class="cell-body text-left">

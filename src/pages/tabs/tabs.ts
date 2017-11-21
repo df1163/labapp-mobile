@@ -58,4 +58,10 @@ export class TabsPage {
         alert('Removed ' + this.myInput + ' from search box');
         alert(this.myInput);
     }
+
+    ngOnDestroy() {
+        this.events.unsubscribe("navChange");
+        this.events.unsubscribe("ExitRootPage");
+
+    }
 }

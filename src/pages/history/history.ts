@@ -20,4 +20,8 @@ export class HistoryPage {
     });
   }
 
+  ngOnDestroy() {
+    this.events.unsubscribe('SearchCriteriaChange');
+  }
+
 }

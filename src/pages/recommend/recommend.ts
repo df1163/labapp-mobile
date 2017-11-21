@@ -64,8 +64,8 @@ export class RecommendPage {
     // console.log('ngAfterContentInit');
   }
 
-  handlerScroll(this){
-    this.showCriteria = 'static';
+  alertF(){
+    alert('NMB!!');
   }
 
   ngAfterContentChecked(){
@@ -78,9 +78,10 @@ export class RecommendPage {
 
   ngAfterViewInit() {
     this.elem = <HTMLElement><any>document.getElementsByClassName('scroll-content')[0];
-    this.elem.addEventListener('scroll', ()=>{
+    this.elem.addEventListener('touchstart', ()=>{
+      // alert('triggered!')
       this.showCriteria = 'static';
-      setTimeout(()=>{this.elem.removeEventListener('scroll', ()=>{});this.showCriteria = 'none'}, 3000);
+      setTimeout(()=>{this.elem.removeEventListener('touchend', ()=>{});this.showCriteria = 'none'}, 1000);
     });
 
   }
@@ -89,7 +90,7 @@ export class RecommendPage {
   }
 
   ngOnDestory(){
-    // console.log('ngOnDestory');
+    this.events.unsubscribe('SearchCriteriaChange');
   }
 
 }
