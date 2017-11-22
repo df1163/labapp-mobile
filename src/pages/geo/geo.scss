@@ -1,3 +1,23 @@
 page-geo {
+  .form-header {
+    text-align: center;
+  }
 
+  .form-example {
+    button[type='button']{
+      background-color: white;
+      color: black;
+      width: 17rem;
+      border-radius: 1rem;
+    }
+  }
+
+  ion-item-group{
+    ion-item{
+      padding-left: 0 !important;
+      div.input-wrapper {
+        width: 100vw !important;
+      }
+    }
+  }
 }

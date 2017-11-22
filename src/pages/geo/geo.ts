@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {IonicPage, LoadingController} from 'ionic-angular';
 
 import { Hero } from '../../app/hero';
@@ -9,7 +9,59 @@ import { HeroService } from '../../app/hero.service';
     templateUrl: 'geo.html'
 })
 export class GeoPage {
-    heroes: Hero[];
+    @ViewChild('myForm') myForm: ElementRef;
+
+    private heroes: Hero[];
+
+    // private options =[ '小学', '初中', '高中', '幼儿', '全部', '初中/高中'];
+    private grades = ['Primary', 'Junior', 'Senior', 'Nursery', 'All', 'Middle'];
+    private platforms = ['Android', 'iOS', 'Win'];
+
+    private criteria = ['Default', 'Latest', 'Popularity'];
+
+    private translations = {
+        'Primary': '小学',
+        'Junior': '初中',
+        'Senior': '高中',
+        'Nursery': '幼儿',
+        'All': '全部',
+        'Middle':  '初中/高中'
+    };
+
+    private selection:object = {
+        grade: 'All',
+        platform: 'All'
+    };
+
+    logForm() {
+        console.log(this.selection)
+    }
+
+    resetForm(){
+        this.selection = {
+            grade: null,
+            platform: null
+        };
+    }
+    setGrade(v: string){
+        this.selection.grade = v;
+    }
+
+    setPlatform(v:string){
+        this.selection.platform = v;
+    }
+
+    private order = {
+        orderBy: 'Default'
+    }
+
+    logForm2() {
+        console.log(this.order);
+    }
+
+    setOrder(v: string){
+        this.order.orderBy = v;
+    }
 
     pepperoni: string;
     mushrooms: string;
@@ -42,6 +94,7 @@ export class GeoPage {
             console.timeEnd('Running costs');
             loading.dismiss();
         });
+
 
     }
 
@@ -91,4 +144,7 @@ export class GeoPage {
     //     }, 5000);
     // }
 
+    ngAfterViewInit() {
+        //console.log(this.myForm);
+    }
 }

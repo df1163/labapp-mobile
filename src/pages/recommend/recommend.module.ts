@@ -5,15 +5,15 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { RecommendPage } from './recommend';
 import { SharedModule } from '../../app/shared/shared.module';
-import { FloatButtonSet } from '../../app/components/floatbuttonset/floatbuttonset';
+import { SharedComponentModule } from '../../app/components/sharedComponent.module';
 
 @NgModule({
     declarations: [
         RecommendPage,
-        FloatButtonSet
     ],
     imports: [
         SharedModule,
+        SharedComponentModule,
         IonicPageModule.forChild(RecommendPage)
     ],
     exports: [RecommendPage]

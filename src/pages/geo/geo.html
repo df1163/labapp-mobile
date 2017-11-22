@@ -25,14 +25,45 @@
     <!--<ion-toggle [(ngModel)]="mushrooms" (ionChange)="output(mushrooms)"></ion-toggle>-->
     <!--</ion-item>-->
     <ion-list>
-        <ion-item *ngFor="let hero of heroes">
-            <ion-label>{{hero.id}}</ion-label>
-            <ion-label>{{hero.name}}</ion-label>
-        </ion-item>
+        <form (ngSubmit)="logForm()" #myForm="ngForm" class="form-example">
+            <ion-item class="form-header">
+                <button ion-button item-left type="reset" (click)="resetForm()" >取消</button>
+                筛选
+                <button ion-button item-end type="submit">完成</button>
+            </ion-item>
+            <ion-label>学科</ion-label>
+            <ion-item-group selected [(selectedChild)]="selection.grade">
+                <button ion-button="" type="button" (click)="setGrade(opt)" name={{opt}} *ngFor="let opt of grades">{{translations[opt]}}</button>
+            </ion-item-group>
+            <ion-label>平台</ion-label>
+            <ion-item-group selected [(selectedChild)]="selection.platform">
+                <button ion-button="" type="button" (click)="setPlatform(p)" name={{p}} *ngFor="let p of platforms">{{p}}</button>
+            </ion-item-group>
+        </form>
+
+        <form (ngSubmit)="logForm2()">
+            <ion-item class="form-header">
+                <button ion-button item-left type="reset" (click)="resetForm()" >取消</button>
+                排序
+                <button ion-button item-end type="submit">完成</button>
+            </ion-item>
+
+            <ion-item-group radio-group [(ngModel)]="order.orderBy" [ngModelOptions]="{standalone: true}">
+                <ion-item  [style.textAlign]="'center'">
+                    <ion-label>默认</ion-label>
+                    <ion-radio value="Default" checked></ion-radio>
+                </ion-item>
+                <ion-item [style.textAlign]="'center'">
+                    <ion-label>最新</ion-label>
+                    <ion-radio value="Latest"></ion-radio>
+                </ion-item>
+                <ion-item [style.textAlign]="'center'">
+                    <ion-label>最热</ion-label>
+                    <ion-radio value="Popularity"></ion-radio>
+                </ion-item>
+            </ion-item-group>
+        </form>
+
     </ion-list>
 
-
-    <ion-fab>
-        <button ion-fab>Buttonsdfs</button>
-    </ion-fab>
 </ion-content>
