@@ -1,6 +1,7 @@
 <ion-content #container no-border>
     <ion-list id="appList" no-border>
 
+        <!--<ion-item *ngFor="let app of apps" (click)="pushTestPage(app.title, app.image)">-->
         <ion-item *ngFor="let app of apps | inputSearch : 'title' : value" (click)="pushTestPage(app.title, app.image)">
             <ion-avatar item-left>
                 <img src={{app.image}}>

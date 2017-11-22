@@ -4,12 +4,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { HistoryPage } from './history';
+import { SharedModule } from '../../app/shared/shared.module';
 
 @NgModule({
     declarations: [
         HistoryPage,
     ],
-    imports: [IonicPageModule.forChild(HistoryPage)],
+    imports: [
+        SharedModule,
+        IonicPageModule.forChild(HistoryPage)
+    ],
     exports: [HistoryPage]
 })
 export class HistoryPageModule{

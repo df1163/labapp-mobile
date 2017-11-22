@@ -1,9 +1,12 @@
+/**
+ * Created by alex on 22/11/2017.
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'inputSearch'
 })
-export class filterInutSearchPipe implements PipeTransform{
+export class filterInputSearchPipe implements PipeTransform{
     transform(items: any[], field:string, value: string):any {
         if(!items)   return [];
 

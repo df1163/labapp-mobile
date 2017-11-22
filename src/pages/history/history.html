@@ -4,7 +4,7 @@
             下载历史
             <ion-icon name="ionic"></ion-icon>
         </ion-list-header>
-        <ion-item *ngFor="let app of apps">
+        <ion-item *ngFor="let app of apps | inputSearch : 'title' : value">
             <ion-avatar item-left="">
                 <img src={{app.image}}>
             </ion-avatar>

@@ -79,9 +79,9 @@ export class RecommendPage {
 
     ngAfterViewInit() {
         this.elem = <HTMLElement><any>document.getElementsByClassName('scroll-content')[0];
-        this.elem.addEventListener('scroll', ()=>{
+        this.elem.addEventListener('touchstart', ()=>{
             this.showCriteria = 'static';
-            setTimeout(()=>{this.elem.removeEventListener('scroll', ()=>{});this.showCriteria = 'none'}, 3000);
+            setTimeout(()=>{this.elem.removeEventListener('touchend', ()=>{});this.showCriteria = 'none'}, 3000);
         });
 
     }
@@ -91,7 +91,7 @@ export class RecommendPage {
 
     ngOnDestory(){
         // console.log('ngOnDestory');
-
+        this.events.unsubscribe('SearchCriteriaChange');
     }
 
 }

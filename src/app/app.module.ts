@@ -10,6 +10,7 @@ import {HeroService} from './hero.service';
 
 import {AppShare} from './app.share';
 
+
 @NgModule({
     declarations: [
         MyApp,
@@ -21,7 +22,7 @@ import {AppShare} from './app.share';
     ],
     bootstrap: [IonicApp],
     entryComponents: [
-        MyApp,
+        //MyApp,
     ],
     providers: [
         StatusBar,

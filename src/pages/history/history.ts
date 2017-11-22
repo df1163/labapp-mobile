@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import { Events, IonicPage, NavController} from 'ionic-angular';
 import { appsService } from '../../app/apps.service';
 @IonicPage()
 @Component({
@@ -9,10 +9,18 @@ import { appsService } from '../../app/apps.service';
 })
 export class HistoryPage {
   private apps: object[];
+  private value: string = "";
 
-  constructor(public navCtrl: NavController, public appsService: appsService) {
+  constructor(public navCtrl: NavController, public appsService: appsService, public events: Events) {
     this.apps = appsService.getUnknownNumberApps(3,9,13,14,15,16);
-    console.log(this.apps);
+
+    this.events.subscribe('SearchCriteriaChange',(data) => {
+      this.value = data.searchCriteria;
+    });
+  }
+
+  ngOnDestroy(){
+    this.events.unsubscribe('SearchCriteriaChange');
   }
 
 }
